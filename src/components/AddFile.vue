@@ -11,6 +11,11 @@ function click2() {
     
 }
  
+ function targ(e:any) {
+  // e.preventDefault()
+    console.log(e.data);
+    
+ }
 </script>
 
 
@@ -40,7 +45,7 @@ function click2() {
 
 <button @click="click2">My button {{ 12+10 }}</button>
 <input @keydown.prevent v-on:keydown="console.log('test')" >My button</input>
-
+<input @keydown.prevent  @input="targ" placeholder="Введите текст" type="text">
 
 </template>
 
