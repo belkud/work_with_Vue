@@ -3,9 +3,22 @@ import { ref } from 'vue'
 
 defineProps<{ msg: string }>()
 
+const text2 = ref(' d')
+const str = ref('our_page')
+const bool =ref(false)
+const day = new Date() 
+
+//  ! изменение background
+const background = ref('red')
 const count = ref(0)
-let str = ref('our_page')
-let bool =ref(false)
+
+// опасити у кнопки через конст и анонимной функции
+const opacity =ref(0.1)
+
+
+// <!--! меняем значение переменной  -->
+str.value = 'eeeeeeeeee'
+
 function click2() {
     console.log('Вызов функции');
     
@@ -16,17 +29,58 @@ function click2() {
     console.log(e.data);
     
  }
+ 
+ 
+
+function changeBackground () {
+  if (count.value<=5) {
+    background.value = 'orange'
+  } else {
+    background.value = 'blue' 
+  }
+}
+
+
+str.value = day.toISOString()
+
+
+
+const changeOpacity = () => {
+  if (opacity.value>=1) {
+    opacity.value = 0.1
+  }
+  opacity.value+=0.1
+}
+
+
 </script>
 
 
 
 <template>
-    <div class="myColor" v-if="bool"   @click="str+='!'">{{ str }}</div>
-    <div class="myColor" v-else  @click="str+='!'">{{ str.split('').reverse().join('') }}</div>
-    <button v-on:click="bool=!bool">reverse</button>
+  
   <h1>{{ msg }}</h1>
-        <button @click="count++">счёт: {{ count }} </button>
+  <input class="myColor" type="text" v-model="text2">
+  <div >{{ text2 }}</div>
+
+
+  <button v-bind:style="'opacity:' +opacity"  @click="changeOpacity"> Изменение прозрачности</button>
+
  
+
+
+    <div class="myColor" v-if="!bool"   @click="str+='!'">{{ str }}</div>
+    <div class="myColor" v-else  @click="str+='!'">{{ str.split('').reverse().join('') }}</div>
+    <button v-on:click="bool=!bool;">reverse</button>
+    <br>
+    <br> 
+
+    <!--! v-bind: -  v-bind срезаем и получается просто ':' -->
+    <button id="clickBtn"  :style="'background:' +background"  @click="count++;  console.log(count); changeBackground() ">счёт: {{ count }} </button>
+    <!--! Все условия лучше закидывать в функцию чтобы не писать через ';' -->
+
+
+
   <p>
     Check out
     <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
@@ -59,6 +113,9 @@ function click2() {
     color: orange
 }
 
+/* #clickBtn {
+  background: red;
+} */
 
 
 

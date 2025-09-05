@@ -5,11 +5,12 @@ defineProps<{ msg: string }>()
 
 const count = ref(0)
 const count2 = ref(0)
+let text = ref('')
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
-
+<!-- <div></div> -->
 <button v-on:click="count2++">count is {{count2}}</button>
 
   <div class="card">

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+
+import AddFile2  from "./components/AddFile2.vue";
+
+
 import HelloWorld from './components/HelloWorld.vue'
 import AddFile from './components/AddFile.vue'
 
@@ -6,15 +10,19 @@ import AddFile from './components/AddFile.vue'
 
 
 <template>
+
+  
+  <AddFile2 msg2="Hello from add file2" />
+
   <AddFile msg="Hello from add file" />
   <HelloWorld msg="Vite + Vue5555555555555555" />
 
-  
+
   <div class="color">
     <a  href="https://vite.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
-    hjkhiuhgiu
+     
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
