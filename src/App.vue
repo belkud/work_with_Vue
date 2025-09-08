@@ -5,7 +5,7 @@ import AddFile2  from "./components/AddFile2.vue";
 // <!--! названия фалов всегда двумя словами и с большой буквы -->
 import HH from './components/HelloWorld.vue'
 import AddFile from './components/AddFile.vue'
-import AddFile3 from "./components/AddFile3.vue";
+import AddFile3 from './components/AddFile3.vue'
 
 
 // const currentUser  = ref('Текущий пользователь')
@@ -16,6 +16,7 @@ import AddFile3 from "./components/AddFile3.vue";
 
 
 <template>
+  <!-- <AddFile3> </AddFile3> -->
   <AddFile3/>
 
 
@@ -54,6 +55,7 @@ import AddFile3 from "./components/AddFile3.vue";
 </template>
 
 <style scoped>
+
 .logo {
   height: 6em;
   padding: 1.5em;

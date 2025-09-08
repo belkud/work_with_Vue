@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue'
 
-
+// defineProps<{ msg: string }>()
 
 let mass2 = ref('') 
 let mass = ('') as any
@@ -22,8 +22,8 @@ function randomName() {
     
     
     <!-- Плюсовать случайное имя -->
-    <div id="greet" @click="randomName()">Hey friend '{{ mass, mass2 }}'</div>
-    <div id="greet" @click="randomName()">Hey friend '{{ mass2 }}'</div>
+    <div @click="randomName()">Hey friend '{{ mass }}'</div>
+    <div @click="randomName()">Hey friend '{{ mass2 }}'</div>
     
     <!-- связать div  и input -->
 

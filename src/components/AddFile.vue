@@ -59,7 +59,7 @@ const changeOpacity = () => {
 
 <template>
 
-  <h1>{{ msg }}</h1>
+  <h1 class="header1">{{ msg }}</h1>
   
   <slot></slot>  <!--! сам текст в родительском теге AddFile -->
 
@@ -110,6 +110,9 @@ const changeOpacity = () => {
 
 
 <style scoped>
+.header1 {
+  color: greenyellow !important;
+}
 .read-the-docs {
   color: #888;
 }
