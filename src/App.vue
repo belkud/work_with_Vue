@@ -15,24 +15,16 @@ import AddFile3 from './components/AddFile3.vue'
 <!--! обязательно скачать Vue (Official) -->
 
 
+<!--! официальный сайт https://ru.vuejs.org/ -->
+
 <template>
-  <!-- <AddFile3> </AddFile3> -->
-  <AddFile3/>
 
-
+  
+  
   <!-- <AddFile :user="currentUser" msg="Hello from add file">  -->
-  <AddFile msg="Hello from add file"> 
+  <AddFile msg="Hello from add file 1"> 
     <p>Текст с параграфа</p>
     <p>Текст с параграфа 2</p> <!--! с помощью тега slot в tempalte файла AddFile -->
-  </AddFile>
-
-  <AddFile msg="Hello from add file"> 
-  </AddFile>
-  
-  <AddFile msg="Hello from add file"> 
-  </AddFile>
-  
-  <AddFile msg="Hello from add file"> 
   </AddFile>
 
   <AddFile2 msg2="Hello from add file2" />  <!--! первая запись со слэшом -->
@@ -41,7 +33,10 @@ import AddFile3 from './components/AddFile3.vue'
 
 
   <h-h  msgTest ="Hello worlddddd" /> <!--! третья запись 'тупенькая' с сокращением-->
-
+  
+  
+  
+  <AddFile3/>
 
   <div class="color">
     <a  href="https://vite.dev" target="_blank">
