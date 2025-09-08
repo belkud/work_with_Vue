@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-defineProps<{ msg: string }>()
+defineProps<{ msgTest: string }>()
 
 const count = ref(0)
 const count2 = ref(0)
@@ -9,7 +9,7 @@ let text = ref('')
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>{{ msgTest }}</h1>
 <!-- <div></div> -->
 <button v-on:click="count2++">count is {{count2}}</button>
 

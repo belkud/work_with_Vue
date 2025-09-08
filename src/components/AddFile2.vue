@@ -27,19 +27,23 @@ const val = () => {
 
 </template>
 
+
+
 <style scoped>
-    #users {
-        cursor: pointer;
-        background: gray;
-        border-radius: 5px;
-        margin: 10px;
-        border: 1px solid transparent;
-        transition: .3s;
-    }
-    #users:hover {
-        border: 1px solid aqua;
-        text-transform:uppercase;
-    }
+
+#users {
+    cursor: pointer;
+    background: gray;
+    border-radius: 5px;
+    margin: 10px;
+    border: 1px solid transparent;
+    transition: .3s;
+}
+
+#users:hover {
+    border: 1px solid aqua;
+    text-transform:uppercase;
+}
 
 
 .col2 {

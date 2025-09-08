@@ -58,8 +58,12 @@ const changeOpacity = () => {
 
 
 <template>
-  
+
   <h1>{{ msg }}</h1>
+  
+  <slot></slot>  <!--! сам текст в родительском теге AddFile -->
+
+  <!--! v-model — это "двустороннее связывание данных (обычно текста)" -->
   <input class="myColor" type="text" v-model="text2">
   <div >{{ text2 }}</div>
 
@@ -76,6 +80,7 @@ const changeOpacity = () => {
     <br> 
 
     <!--! v-bind: -  v-bind срезаем и получается просто ':' -->
+    <!--! v-bind — это "одностороннее связывание данных" (class, style, src, href)  -->
     <button id="clickBtn"  :style="'background:' +background"  @click="count++;  console.log(count); changeBackground() ">счёт: {{ count }} </button>
     <!--! Все условия лучше закидывать в функцию чтобы не писать через ';' -->
 
@@ -117,6 +122,9 @@ const changeOpacity = () => {
   background: red;
 } */
 
+body {
+  color: red;
+}
 
 
 </style>

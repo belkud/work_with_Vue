@@ -2,20 +2,44 @@
 
 import AddFile2  from "./components/AddFile2.vue";
 
-
-import HelloWorld from './components/HelloWorld.vue'
+// <!--! названия фалов всегда двумя словами и с большой буквы -->
+import HH from './components/HelloWorld.vue'
 import AddFile from './components/AddFile.vue'
+import AddFile3 from "./components/AddFile3.vue";
 
+
+// const currentUser  = ref('Текущий пользователь')
 </script>
 
 
+<!--! обязательно скачать Vue (Official) -->
+
+
 <template>
+  <AddFile3/>
 
+
+  <!-- <AddFile :user="currentUser" msg="Hello from add file">  -->
+  <AddFile msg="Hello from add file"> 
+    <p>Текст с параграфа</p>
+    <p>Текст с параграфа 2</p> <!--! с помощью тега slot в tempalte файла AddFile -->
+  </AddFile>
+
+  <AddFile msg="Hello from add file"> 
+  </AddFile>
   
-  <AddFile2 msg2="Hello from add file2" />
+  <AddFile msg="Hello from add file"> 
+  </AddFile>
+  
+  <AddFile msg="Hello from add file"> 
+  </AddFile>
 
-  <AddFile msg="Hello from add file" />
-  <HelloWorld msg="Vite + Vue5555555555555555" />
+  <AddFile2 msg2="Hello from add file2" />  <!--! первая запись со слэшом -->
+  <!--! <AddFile2 msg2="234234234"></AddFile2>  ! вторая аналогичная запись -->
+
+
+
+  <h-h  msgTest ="Hello worlddddd" /> <!--! третья запись 'тупенькая' с сокращением-->
 
 
   <div class="color">
