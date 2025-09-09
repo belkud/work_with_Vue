@@ -6,7 +6,7 @@ import AddFile2  from "./components/AddFile2.vue";
 import HH from './components/HelloWorld.vue'
 import AddFile from './components/AddFile.vue'
 import AddFile3 from './components/AddFile3.vue'
-
+import AddFile4 from "./components/AddFile4.vue";
 
 // const currentUser  = ref('Текущий пользователь')
 </script>
@@ -17,15 +17,19 @@ import AddFile3 from './components/AddFile3.vue'
 
 <!--! официальный сайт https://ru.vuejs.org/ -->
 
+<!--! Все основная инфа в AddFile -->
+
 <template>
 
   
-  
+
   <!-- <AddFile :user="currentUser" msg="Hello from add file">  -->
-  <AddFile msg="Hello from add file 1"> 
-    <p>Текст с параграфа</p>
-    <p>Текст с параграфа 2</p> <!--! с помощью тега slot в tempalte файла AddFile -->
-  </AddFile>
+    <AddFile msg="Hello from add file 1"> 
+      <p>Текст через тег slot  в дочернем элементе</p> <!--! с помощью тега slot в tempalte файла AddFile -->
+    </AddFile>
+
+    
+    <AddFile4>Slot</AddFile4>
 
   <AddFile2 msg2="Hello from add file2" />  <!--! первая запись со слэшом -->
   <!--! <AddFile2 msg2="234234234"></AddFile2>  ! вторая аналогичная запись -->
@@ -67,3 +71,6 @@ import AddFile3 from './components/AddFile3.vue'
  color: red;
 }
 </style>
+
+
+

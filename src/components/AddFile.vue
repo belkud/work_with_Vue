@@ -15,6 +15,14 @@ const count = ref(0)
 // опасити у кнопки через конст и анонимной функции
 const opacity =ref(0.1)
 
+// изменение цвета текста через переменную
+const col = ('pink')
+
+const users = ref ([
+    {name:'user1', age: 23},
+    {name:'user2', age: 24},
+    {name:'user3', age: 25}
+])
 
 // <!--! меняем значение переменной  -->
 str.value = 'eeeeeeeeee'
@@ -59,8 +67,13 @@ const changeOpacity = () => {
 
 <template>
 
-  <h1 class="header1">{{ msg }}</h1>
+  <h1 :style="'color:' +col" class="header1">{{ msg }}</h1>
   
+  
+  <!--! работа с циклами -->
+  <div id="users" v-for="user, index of users"  :key="index">{{index+1}}. {{ user.name }}</div>
+
+
   <slot></slot>  <!--! сам текст в родительском теге AddFile -->
 
   <!--! v-model — это "двустороннее связывание данных (обычно текста)" -->
@@ -90,13 +103,17 @@ const changeOpacity = () => {
 <input @keydown.prevent v-on:keydown="console.log('test')" >My button</input>
 <input @keydown.prevent  @input="targ" placeholder="Введите текст" type="text">
 
+
+
+
+
 </template>
 
 
 <style scoped>
-.header1 {
-  color: greenyellow !important;
-}
+/* .header1 {
+  color: greenyellow;
+} */
 .read-the-docs {
   color: #888;
 }
