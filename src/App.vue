@@ -67,9 +67,12 @@ import AddFile4 from "./components/AddFile4.vue";
   filter: drop-shadow(0 0 2em #f5bd05aa);
 }
 .color {
- color: red;
+ color: green;
 }
 </style>
+
+
+
 
 
 
