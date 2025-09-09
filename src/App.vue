@@ -20,16 +20,15 @@ import AddFile4 from "./components/AddFile4.vue";
 <!--! Все основная инфа в AddFile -->
 
 <template>
+  <AddFile4>Slot</AddFile4>
 
-  
 
   <!-- <AddFile :user="currentUser" msg="Hello from add file">  -->
-    <AddFile msg="Hello from add file 1"> 
+    <AddFile msg="Hello from add file"> 
       <p>Текст через тег slot  в дочернем элементе</p> <!--! с помощью тега slot в tempalte файла AddFile -->
     </AddFile>
 
     
-    <AddFile4>Slot</AddFile4>
 
   <AddFile2 msg2="Hello from add file2" />  <!--! первая запись со слэшом -->
   <!--! <AddFile2 msg2="234234234"></AddFile2>  ! вторая аналогичная запись -->
@@ -72,5 +71,15 @@ import AddFile4 from "./components/AddFile4.vue";
 }
 </style>
 
+
+
+<!--!!! Работа с терминалом git bash !!!-->
+<!--! $git cat (название файла) -  Показать содержимое файла-->
+<!--! $pwd (Показать текущую директорию) -->
+<!--! $clear (очистить терминал) -->
+
+Настройка пользователя
+<!--! git config --global user.name "Your Name" -->
+<!--! git config --global user.email "your@email.com"-->
 
 

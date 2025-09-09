@@ -27,7 +27,7 @@ function changeWidth() {
   <button @click="changeWidth()">Button</button>
   <div id="divWidth" :style="'width:'  +width +'px'" >изменение ширины</div>
   <br>
-  <slot></slot>
+  <!-- <slot></slot> -->
 
 </template>
 
