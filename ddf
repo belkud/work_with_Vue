@@ -1,0 +1,53 @@
+* [33mcommit d7d75ce8134ed158c1610c70f4771c3984addf5b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+[31m|[m Author: belkud <vlad-belkud@yandex.ru>
+[31m|[m Date:   Tue Sep 9 18:10:21 2025 +0300
+[31m|[m 
+[31m|[m     git test command
+[31m|[m 
+* [33mcommit 8c9fcec19b8c401e24efd907a37ab5647b823602[m[33m ([m[1;31morigin/main[m[33m)[m
+[31m|[m Author: belkud <vlad-belkud@yandex.ru>
+[31m|[m Date:   Tue Sep 9 18:06:12 2025 +0300
+[31m|[m 
+[31m|[m     write main git commands
+[31m|[m 
+* [33mcommit 48d5e28327c22f9e679fd892c771e043c819cfe5[m
+[31m|[m Author: belkud <vlad-belkud@yandex.ru>
+[31m|[m Date:   Tue Sep 9 13:59:43 2025 +0300
+[31m|[m 
+[31m|[m     little_work_for_students
+[31m|[m 
+* [33mcommit 98b49e6dc19e7c061dc67acf5ddde6e20ea66e30[m
+[31m|[m Author: belkud <vlad-belkud@yandex.ru>
+[31m|[m Date:   Mon Sep 8 18:16:52 2025 +0300
+[31m|[m 
+[31m|[m     prepared_material_for_lessons
+[31m|[m 
+* [33mcommit e51f2927af95cfe9dbcba99a3b35f6d1a734b4e2[m
+[31m|[m Author: belkud <vlad-belkud@yandex.ru>
+[31m|[m Date:   Mon Sep 8 17:16:29 2025 +0300
+[31m|[m 
+[31m|[m     prepare_material_for_lessons
+[31m|[m 
+* [33mcommit e3204b5b3b7a512d4331e19d6467da19e2683f65[m
+[31m|[m Author: belkud <vlad-belkud@yandex.ru>
+[31m|[m Date:   Mon Sep 8 12:36:23 2025 +0300
+[31m|[m 
+[31m|[m     refresh_tasks
+[31m|[m 
+* [33mcommit e20c9cc32b491e1b59adc9250f05a7718c4eec16[m
+[31m|[m Author: belkud <vlad-belkud@yandex.ru>
+[31m|[m Date:   Fri Sep 5 11:26:37 2025 +0300
+[31m|[m 
+[31m|[m     create files in Vue
+[31m|[m 
+* [33mcommit 1a99c394175b06ec0eaf52083e930c19076dcd16[m
+[31m|[m Author: belkud <vlad-belkud@yandex.ru>
+[31m|[m Date:   Mon Sep 1 18:13:36 2025 +0300
+[31m|[m 
+[31m|[m     vue 2
+[31m|[m 
+* [33mcommit d5e0dd93bba3cf58010cc81b2f3567be8da3bca3[m
+  Author: belkud <vlad-belkud@yandex.ru>
+  Date:   Mon Sep 1 17:34:19 2025 +0300
+  
+      first commit

@@ -1,11 +1,8 @@
 <script setup lang="ts">
 
-import AddFile2  from "./components/AddFile2.vue";
 
 // <!--! названия фалов всегда двумя словами и с большой буквы -->
-import HH from './components/HelloWorld.vue'
 import AddFile from './components/AddFile.vue'
-import AddFile3 from './components/AddFile3.vue'
 import AddFile4 from "./components/AddFile4.vue";
 
 // const currentUser  = ref('Текущий пользователь')
@@ -23,19 +20,17 @@ import AddFile4 from "./components/AddFile4.vue";
   <AddFile4>Slot</AddFile4>
 
 
-  <!-- <AddFile :user="currentUser" msg="Hello from add file">  -->
-    <AddFile msg="Hello from add file"> 
+    <AddFile msg="Hello from add file2"/>    <!--! первая запись со слэшом -->
+    <AddFile msg="Hello from add file">      <!--! вторая аналогичная запись -->-->
       <p>Текст через тег slot  в дочернем элементе</p> <!--! с помощью тега slot в tempalte файла AddFile -->
     </AddFile>
 
     
 
-  <AddFile2 msg2="Hello from add file2" />  <!--! первая запись со слэшом -->
   <!--! <AddFile2 msg2="234234234"></AddFile2>  ! вторая аналогичная запись -->
 
 
 
-  <h-h  msgTest ="Hello worlddddd" /> <!--! третья запись 'тупенькая' с сокращением-->
   
   
   
@@ -84,5 +79,6 @@ import AddFile4 from "./components/AddFile4.vue";
 Настройка пользователя
 <!--! git config --global user.name "Your Name" -->
 <!--! git config --global user.email "your@email.com"-->
+<!--! git log --graph - краткая история коммитов-->
 
 

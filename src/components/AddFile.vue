@@ -24,6 +24,19 @@ const users = ref ([
     {name:'user3', age: 25}
 ])
 
+// ! Имя с случайной буквы!
+
+let mass = ref('')
+function randomName() {
+    const random = Math.round(Math.random()*33)+1072
+    for (let i = 1072; i<= 1103; i++) {
+        if (i==random)
+        mass.value+=(String.fromCodePoint(i))
+    }
+}
+
+
+
 // <!--! меняем значение переменной  -->
 str.value = 'eeeeeeeeee'
 
@@ -105,7 +118,8 @@ const changeOpacity = () => {
 
 
 
-
+  <!-- Плюсовать случайное имя -->
+    <div @click="randomName()">Hey friend '{{ mass }}'</div>
 
 </template>
 
