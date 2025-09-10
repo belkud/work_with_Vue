@@ -1,5 +1,35 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onBeforeMount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, onBeforeUnmount} from 'vue'
+
+
+// хуки жизненнего цикла
+
+// В Vue.js хуки жизненного цикла - это функции, которые вызываются на различных 
+// этапах жизни компонента. Они позволяют выполнять код в определенные моменты: от создания 
+// до уничтожения компонента.
+
+onBeforeMount(()=> {
+  console.log('onBeforeMount');
+})
+onBeforeUpdate(()=> {
+  console.log('onBeforeUpdate');
+})
+onMounted(()=> {
+  console.log('onMounted');
+})
+onUnmounted(()=> {
+  console.log('onUnmounted');
+})
+onUpdated(()=> {
+  console.log('onUpdated');
+})
+onBeforeUnmount(()=> {
+  console.log('onBeforeUnmount');
+})
+  
+
+
+
 
 defineProps<{ msg: string }>()
 

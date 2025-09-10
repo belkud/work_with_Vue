@@ -1,12 +1,15 @@
 <script setup lang="ts">
     import { ref } from 'vue'
 
+    // import TheButton from "./components/TheButton.vue";
+
 const fillProgressBar = ref(0)
 
 </script>
 
 
 <template>
+    <!-- <TheButton/> -->
 
 <div class="task">Создать html-страницу с progressbar и кнопкой, при нажатии 
 на которую заполненность progressbar увеличивается на 5%.</div>
