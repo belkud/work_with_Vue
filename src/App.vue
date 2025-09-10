@@ -4,7 +4,8 @@
 // <!--! названия фалов всегда двумя словами и с большой буквы -->
 import AddFile from './components/AddFile.vue'
 import AddFile4 from "./components/AddFile4.vue";
-
+import RandomNumber from "./components/RandomNumber.vue";
+import ShowCoordinate from "./components/ShowCoordinate.vue";
 // const currentUser  = ref('Текущий пользователь')
 </script>
 
@@ -17,13 +18,28 @@ import AddFile4 from "./components/AddFile4.vue";
 <!--! Все основная инфа в AddFile -->
 
 <template>
-  <AddFile4>Slot</AddFile4>
+
+<!--! задание 1. -->
 
 
-    <AddFile msg="Hello from add file2"/>    <!--! первая запись со слэшом -->
-    <AddFile msg="Hello from add file">      <!--! вторая аналогичная запись -->-->
-      <p>Текст через тег slot  в дочернем элементе</p> <!--! с помощью тега slot в tempalte файла AddFile -->
-    </AddFile>
+
+<random-number/>
+<br><hr><br>
+
+<show-coordinate/>
+<br><hr><br>
+
+  <add-file msg="Hello from add file">      <!--! вторая аналогичная запись -->
+    <p>Текст через тег slot  в дочернем элементе</p> <!--! с помощью тега slot в tempalte файла AddFile -->
+  </add-file>
+
+  <AddFile4>
+    <div>ssssssss</div>
+
+  </AddFile4>
+
+
+    <!-- <add-file msg="Hello from add file"/>  <!--  ! первая запись со слэшом -->
 
     
 
@@ -34,7 +50,6 @@ import AddFile4 from "./components/AddFile4.vue";
   
   
   
-  <AddFile3/>
 
   <div class="color">
     <a  href="https://vite.dev" target="_blank">
@@ -80,5 +95,4 @@ import AddFile4 from "./components/AddFile4.vue";
 <!--! git config --global user.name "Your Name" -->
 <!--! git config --global user.email "your@email.com"-->
 <!--! git log --graph - краткая история коммитов-->
-
 

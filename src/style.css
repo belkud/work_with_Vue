@@ -77,3 +77,10 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.task {
+  color: gray;
+  /* text-align: left; */
+  max-width: 500px;
+  margin: auto;
+}

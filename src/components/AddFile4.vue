@@ -19,8 +19,11 @@ function changeWidth() {
 </script>
 
 <template>
-  <h2>AddFile4</h2>
-  <input type="text" v-model="inputText">
+    <h2>AddFile4</h2>
+
+    <slot></slot>
+  
+    <input type="text" v-model="inputText">
   <div>{{ inputText  }}</div>
 
   <br>
