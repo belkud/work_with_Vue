@@ -36,6 +36,7 @@ import MoveProgressBar  from "./components/MoveProgressBar.vue";
 <br><hr><br>
 
 <move-progress-bar/>
+<br><hr><br>
 
 
 
