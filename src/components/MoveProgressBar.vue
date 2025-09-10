@@ -27,14 +27,21 @@ const fillProgressBar = ref(0)
 #outer {
     width: 200px;
     height: 30px;
-    border: 2px solid blue;
+    border: 1px solid rgb(85, 85, 228);
+    border-radius: 5px;
     overflow: hidden;
+    margin: 50px;
+}
+
+#outer:hover {
+border: 1px solid rgb(217, 217, 245);
 }
 
 #inner {
     background: green;
     width: 0px;
     height: 30px;
+    transition: .3s;
 }
 
 </style>
