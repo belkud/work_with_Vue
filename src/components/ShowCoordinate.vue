@@ -4,11 +4,16 @@ import { ref } from 'vue'
 
 const mouseX = ref('')
 const mouseY = ref('')
+const mouseButton = ref('') as any
 
 function showCoordinate (e:any) {
     mouseX.value = e.offsetX
     mouseY.value = e.offsetY
 }
+ 
+ function testMouse(e:any) {
+    mouseButton.value = e.button
+ }
 </script>
 
 
@@ -19,8 +24,10 @@ function showCoordinate (e:any) {
 же, выводить, какой именно кнопкой был совершен клик (правой 
 или левой).</div>
 
-<div id="field" @mousemove="showCoordinate">{{ mouseX }} px по оси Х, <br>
-{{ mouseY }} px по оси Y
+<div id="field" @mousemove="showCoordinate" @mousedown="testMouse">{{ mouseX }} px по оси Х, <br>
+{{ mouseY }} px по оси Y <br> 
+{{ mouseButton == 0  ? 'Клик левой кнопкой' : 'Клик правой кнопкой' }}
+
 
 </div>
 </template>
@@ -37,3 +44,4 @@ function showCoordinate (e:any) {
         margin-top: 20px;
     }
 </style>
+

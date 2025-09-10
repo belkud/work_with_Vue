@@ -6,7 +6,9 @@ import AddFile from './components/AddFile.vue'
 import AddFile4 from "./components/AddFile4.vue";
 import RandomNumber from "./components/RandomNumber.vue";
 import ShowCoordinate from "./components/ShowCoordinate.vue";
-// const currentUser  = ref('Текущий пользователь')
+import ButtonShowText  from "./components/ButtonShowText.vue";
+import MoveProgressBar  from "./components/MoveProgressBar.vue";
+
 </script>
 
 
@@ -29,14 +31,26 @@ import ShowCoordinate from "./components/ShowCoordinate.vue";
 <show-coordinate/>
 <br><hr><br>
 
+
+<button-show-text/>
+<br><hr><br>
+
+<move-progress-bar/>
+
+
+
   <add-file msg="Hello from add file">      <!--! вторая аналогичная запись -->
     <p>Текст через тег slot  в дочернем элементе</p> <!--! с помощью тега slot в tempalte файла AddFile -->
   </add-file>
 
+
+
+
+
   <AddFile4>
     <div>ssssssss</div>
-
   </AddFile4>
+
 
 
     <!-- <add-file msg="Hello from add file"/>  <!--  ! первая запись со слэшом -->
