@@ -8,8 +8,9 @@ import RandomNumber from "./components/RandomNumber.vue";
 import ShowCoordinate from "./components/ShowCoordinate.vue";
 import ButtonShowText  from "./components/ButtonShowText.vue";
 import MoveProgressBar  from "./components/MoveProgressBar.vue";
+import NewsList from "./components/NewsList.vue";
+
 import TheButton from "./components/TheButton.vue";
-import { ref } from 'vue';
 
 
 // const testProps = ref('передаем пропс')
@@ -41,8 +42,10 @@ import { ref } from 'vue';
 <br><hr><br>
 
 <move-progress-bar/>
-<br><hr><br>
+<br><hr><br >
 
+<news-list/>
+<br><hr><br >
 
 
 
