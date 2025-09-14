@@ -37,6 +37,8 @@ const text2 = ref(' d')
 const str = ref('our_page')
 const bool =ref(false)
 const day = new Date() 
+const textHTML = ref('<h4> Данный текст выводится через тег </h4>')
+
 
 //  ! изменение background
 const background = ref('red')
@@ -47,6 +49,8 @@ const opacity =ref(0.1)
 
 // изменение цвета текста через переменную
 const col = ('pink')
+
+// вывод как html
 
 const users = ref ([
     {name:'user1', age: 23},
@@ -119,6 +123,11 @@ const changeOpacity = () => {
 
   <slot></slot>  <!--! сам текст в родительском теге AddFile -->
 
+<div v-html="textHTML"></div>
+<br>
+
+
+
   <!--! v-model — это "двустороннее связывание данных (обычно текста)" -->
   <input class="myColor" type="text" v-model="text2">
   <div >{{ text2 }}</div>
@@ -150,6 +159,8 @@ const changeOpacity = () => {
 
   <!-- Плюсовать случайное имя -->
     <div @click="randomName()">Hey friend '{{ mass }}'</div>
+
+<div >3333333333333333333333</div>
 
 </template>
 

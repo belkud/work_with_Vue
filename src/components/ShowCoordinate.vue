@@ -13,6 +13,7 @@ function showCoordinate (e:any) {
  
  function testMouse(e:any) {
     mouseButton.value = e.button
+    mouseButton.value.style.background =  'orange'
  }
 </script>
 
