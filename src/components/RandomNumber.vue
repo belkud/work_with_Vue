@@ -19,7 +19,7 @@ const randomNum =ref(Math.round(Math.random()*100)) as any
     <h3>Random Number:</h3>
     <div>
         <div style="font-weight: 2em ;">{{randomNum}}</div>
-        <button @click="randomNum = Math.round(Math.random()*100)">Generate Random Number</button>
+        <button @click.prevent="randomNum = Math.round(Math.random()*100)">Generate Random Number</button>
     </div>
         <!-- <div :="attributes">Random Nummmmber,  число {{ guessNum }} -  {{ guessNum%2==0 ? 'Четное' : 'Нечетное' }}</div> -->
 

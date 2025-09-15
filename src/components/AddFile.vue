@@ -2,6 +2,8 @@
 import { ref, onBeforeMount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, onBeforeUnmount} from 'vue'
 
 
+
+
 // хуки жизненнего цикла
 
 // В Vue.js хуки жизненного цикла - это функции, которые вызываются на различных 
@@ -107,14 +109,19 @@ const changeOpacity = () => {
   opacity.value+=0.1
 }
 
-
+function changeColor() {
+  style: [
+    'color : red',
+    'background-color : blue'
+  ]
+}
 </script>
 
 
 
 <template>
 
-  <h1 :style="'color:' +col" class="header1">{{ msg }}</h1>
+  <h1 @click="changeColor()" >555{{ msg }}</h1>
   
   
   <!--! работа с циклами -->
@@ -160,7 +167,7 @@ const changeOpacity = () => {
   <!-- Плюсовать случайное имя -->
     <div @click="randomName()">Hey friend '{{ mass }}'</div>
 
-<div >3333333333333333333333</div>
+<div>3333333333333333333333</div>
 
 </template>
 

@@ -14,7 +14,12 @@ import TheButton from "./components/TheButton.vue";
 
 
 // const testProps = ref('передаем пропс')
-
+// <script>
+// let acc = 1 
+// setInterval (()=> {
+//   acc++
+//   console.log(acc);
+// },1000)
 </script>
 
 
@@ -30,6 +35,21 @@ import TheButton from "./components/TheButton.vue";
 <!--! задание 1. -->
 
 
+  <AddFile4>
+    <div>ssssssss</div>
+  </AddFile4>
+
+
+
+  <add-file msg="Hello from add file">      <!--! вторая аналогичная запись -->
+    <p>Текст через тег slot  в дочернем элементе</p> <!--! с помощью тега slot в tempalte файла AddFile -->
+  </add-file>
+
+
+  
+
+<news-list/>
+<br><hr><br >
 
 <random-number/>
 <br><hr><br>
@@ -44,9 +64,6 @@ import TheButton from "./components/TheButton.vue";
 <move-progress-bar/>
 <br><hr><br >
 
-<news-list/>
-<br><hr><br >
-
 
 
 <TheButton test-props="proooooops">
@@ -58,17 +75,6 @@ import TheButton from "./components/TheButton.vue";
 
 
 
-  <add-file msg="Hello from add file">      <!--! вторая аналогичная запись -->
-    <p>Текст через тег slot  в дочернем элементе</p> <!--! с помощью тега slot в tempalte файла AddFile -->
-  </add-file>
-
-
-
-
-
-  <AddFile4>
-    <div>ssssssss</div>
-  </AddFile4>
 
 
 
