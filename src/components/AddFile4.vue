@@ -1,6 +1,6 @@
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, vModelCheckbox } from "vue";
 
 let inputText = ref('')
 let width = ref(150)
@@ -16,9 +16,20 @@ function changeWidth() {
     
 }
 
+
+
+let texxt = ref('')
+
+function showEl (e:any) {
+        console.log(e.target);
+        
+}
 </script>
 
 <template>
+
+<input type="checkbox" @click="showEl" checked id="checkbox" />
+
     <form action="">
         <div>
             <input  type="checkbox">
@@ -40,6 +51,11 @@ function changeWidth() {
             <option value="">blue</option>
         </select>
     </form>
+
+
+<input v-model="texxt" type="text">
+<div>{{ texxt }}</div>
+
 
 
 
