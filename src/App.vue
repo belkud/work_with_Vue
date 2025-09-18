@@ -34,10 +34,12 @@ import TheButton from "./components/TheButton.vue";
 
 <!--! задание 1. -->
 
+<AddFile4>
+  <div>ssssssss</div>
+</AddFile4>
 
-  <AddFile4>
-    <div>ssssssss</div>
-  </AddFile4>
+<news-list/>
+<br><hr><br >
 
 
 
@@ -48,8 +50,6 @@ import TheButton from "./components/TheButton.vue";
 
   
 
-<news-list/>
-<br><hr><br >
 
 <random-number/>
 <br><hr><br>

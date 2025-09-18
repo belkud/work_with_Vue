@@ -9,7 +9,6 @@ const like = ref(0)
 
 const newColor = 'orange'
 
-console.log('12345');
 
 function changeWidth() {
     width.value += 25
@@ -17,6 +16,24 @@ function changeWidth() {
     // divWidth.style.width= 150 + width.value + 'px'
     // console.log(width);
 }
+
+async function async() {
+    
+    try {
+        let page = await fetch('https://api.github.com/users/belkud')
+        let pageId = await page.json()
+        
+        let myPhoto = pageId.avatar_url
+        console.log(myPhoto);
+        
+    } catch (error) {
+        console.log('ошибка');
+        
+    }
+    
+}
+
+async()
 
 
 
@@ -38,19 +55,23 @@ function showTarget2(e: any) {
 let opacity = ref(0) as any
 
 window.addEventListener('scroll', ()=> {
-    // if (window.scrollY>200) {
-    //     opacity.value=1
-    // } else {        
-    //     opacity.value=0
-    // }
-
     window.scrollY>200 ? opacity.value = 1 : opacity.value = 0
 })
 
+let myImg = document.createElement('img')
+myImg.src = 'https://avatars.githubusercontent.com/u/126806058?v=4'
+myImg.style.position = 'fixed'
+myImg.style.top = '120px'
+myImg.style.left = '50px'
+document.body.prepend(myImg)
+
+
+
 </script>
 
-<template  @click="console.log('eee')">
+<template>
     <h2>AddFile4</h2>
+
     <button id="goUp"  :style="{opacity: opacity}">наверх</button>
 
 <h3>Счётчик лайков</h3>

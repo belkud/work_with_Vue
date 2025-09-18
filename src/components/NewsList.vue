@@ -1,12 +1,9 @@
 <script setup lang="ts">
     import { ref } from "vue"
-const digitals = ref('')
-console.log(digitals);
 // const news = document.querySelector('#news')
 
 function test (e:any) {
-    // console.log(e.target.dataset.set);
-    console.log(e);
+    // console.log(e);
         
 }
 

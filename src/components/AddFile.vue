@@ -13,21 +13,21 @@ import { ref, onBeforeMount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, 
 onBeforeMount(()=> {
   console.log('onBeforeMount');
 })
-onBeforeUpdate(()=> {
-  console.log('onBeforeUpdate');
-})
-onMounted(()=> {
-  console.log('onMounted');
-})
-onUnmounted(()=> {
-  console.log('onUnmounted');
-})
-onUpdated(()=> {
-  console.log('onUpdated');
-})
-onBeforeUnmount(()=> {
-  console.log('onBeforeUnmount');
-})
+// onBeforeUpdate(()=> {
+//   console.log('onBeforeUpdate');
+// })
+// onMounted(()=> {
+//   console.log('onMounted');
+// })
+// onUnmounted(()=> {
+//   console.log('onUnmounted');
+// })
+// onUpdated(()=> {
+//   console.log('onUpdated');
+// })
+// onBeforeUnmount(()=> {
+//   console.log('onBeforeUnmount');
+// })
   
 
 

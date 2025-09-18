@@ -3,7 +3,6 @@
 
 const swither = ref(true)
 
-console.log(typeof swither);
 
 </script>
 
