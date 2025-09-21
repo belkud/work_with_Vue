@@ -17,23 +17,25 @@ function changeWidth() {
     // console.log(width);
 }
 
-async function async() {
-    
-    try {
-        let page = await fetch('https://api.github.com/users/belkud')
-        let pageId = await page.json()
-        
-        let myPhoto = pageId.avatar_url
-        console.log(myPhoto);
-        
-    } catch (error) {
-        console.log('ошибка');
-        
-    }
-    
-}
 
-async()
+
+// async function async() {
+    
+//     try {
+//         let page = await fetch('https://api.github.com/users/belkud')
+//         let pageId = await page.json()
+        
+//         let myPhoto = pageId.avatar_url
+//         console.log(myPhoto);
+        
+//     } catch (error) {
+//         console.log('ошибка');
+        
+//     }
+    
+// }
+
+// async()
 
 
 
@@ -58,19 +60,24 @@ window.addEventListener('scroll', ()=> {
     window.scrollY>200 ? opacity.value = 1 : opacity.value = 0
 })
 
-let myImg = document.createElement('img')
-myImg.src = 'https://avatars.githubusercontent.com/u/126806058?v=4'
-myImg.style.position = 'fixed'
-myImg.style.top = '120px'
-myImg.style.left = '50px'
-document.body.prepend(myImg)
+// let myImg = document.createElement('img')
+// myImg.src = 'https://avatars.githubusercontent.com/u/126806058?v=4'
+// document.body.prepend(myImg)
+// myImg.setAttribute('class', 'active')
 
-
-
+let myPlace = ref('Введите что-нибудь ')
 </script>
 
 <template>
     <h2>AddFile4</h2>
+
+    <input type="text" :placeholder="myPlace">
+
+    <br>
+    <br>
+    <br>
+
+    <div id="testDiv" >sdffggh</div>
 
     <button id="goUp"  :style="{opacity: opacity}">наверх</button>
 
@@ -184,5 +191,4 @@ table th {
     margin-top: 50%;
 }
 
-     
 </style>

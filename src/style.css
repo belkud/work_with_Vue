@@ -84,3 +84,12 @@ button:focus-visible {
   max-width: 500px;
   margin: auto;
 }
+
+
+.active {
+    z-index: -100;
+    position: fixed;
+    top: 120px;
+    left: 120px;
+    width: 150px;
+}  
