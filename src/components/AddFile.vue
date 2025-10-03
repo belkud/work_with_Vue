@@ -36,7 +36,7 @@ onBeforeMount(()=> {
 defineProps<{ msg: string }>()
 
 const text2 = ref(' d')
-const str = ref('our_page')
+const str = ref('our_bool')
 const bool =ref(false)
 const day = new Date() 
 const textHTML = ref('<h4> Данный текст выводится через тег </h4>')
@@ -74,7 +74,7 @@ function randomName() {
 
 
 // <!--! меняем значение переменной  -->
-str.value = 'eeeeeeeeee'
+// str.value = 'eeeeeeeeee'
 
 function click2() {
     console.log('Вызов функции');
@@ -84,6 +84,7 @@ function click2() {
  function targ(e:any) {
   // e.preventDefault()
     console.log(e.data);
+    
     
  }
  
@@ -98,7 +99,7 @@ function changeBackground () {
 }
 
 
-str.value = day.toISOString()
+// str.value = day.toISOString()
 
 
 

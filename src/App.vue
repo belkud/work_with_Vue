@@ -11,6 +11,7 @@ import MoveProgressBar  from "./components/MoveProgressBar.vue";
 import NewsList from "./components/NewsList.vue";
 
 import TheButton from "./components/TheButton.vue";
+import testvue from "./components/test.vue";
 
 
 // const testProps = ref('передаем пропс')
@@ -20,6 +21,16 @@ import TheButton from "./components/TheButton.vue";
 //   acc++
 //   console.log(acc);
 // },1000)
+
+
+
+
+
+
+
+
+
+
 </script>
 
 
@@ -33,6 +44,10 @@ import TheButton from "./components/TheButton.vue";
 <template>
 
 <!--! задание 1. -->
+
+
+<testvue></testvue>
+
 
 <AddFile4>
   <div>ssssssss</div>
