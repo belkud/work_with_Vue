@@ -12,6 +12,7 @@ import NewsList from "./components/NewsList.vue";
 
 import TheButton from "./components/TheButton.vue";
 import testvue from "./components/test.vue";
+import UsersForum from "./components/UsersForum.vue";
 
 
 // const testProps = ref('передаем пропс')
@@ -21,7 +22,6 @@ import testvue from "./components/test.vue";
 //   acc++
 //   console.log(acc);
 // },1000)
-
 
 
 
@@ -43,8 +43,8 @@ import testvue from "./components/test.vue";
 
 <template>
 
-<!--! задание 1. -->
 
+<users-forum></users-forum>
 
 <testvue></testvue>
 

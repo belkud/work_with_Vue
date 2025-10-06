@@ -4,8 +4,11 @@
     <button :style="mystyle"   @click.prevent="prevAction"> Плюсуем на <span class="font">{{ num }}</span> </button>
     <div :style="'font-size:' +num + 'em'">{{ num }}</div>
 
+<button id="buttonJS">oddEven</button>
 
-    <select v-model="select" @click="console.log(select.value)">
+<br>
+
+    <select  @click="console.log()">
             <option value="All">All</option>
             <option value="Learn">Learn</option>
             <option value="Read">Read</option>
@@ -13,7 +16,7 @@
     </select>
 <div></div>
     
-
+ 
     
     <div v-for="lang in sortLanguages">{{ lang.words }}</div>
 
@@ -69,7 +72,7 @@
 
 
 <script setup lang="ts">
-    import { computed, ref, watch, vModelSelect } from "vue";
+    import { computed, ref, onMounted, onUnmounted, onBeforeMount, watch, vModelSelect } from "vue";
 
 
 
@@ -79,7 +82,7 @@
         {index:2, words : 'Build Something'},
     ])
 
-
+ 
 
     let hideButtonCity = ref(true)
     let hi = ref('Hello')
@@ -103,11 +106,11 @@
 
 
     const filteredArr = (computed(()=> {
-        if (sele) {
+        // if (sele) {
             
-        } else {
+        // } else {
             
-        }
+        // }
     }))
 
 
@@ -144,7 +147,49 @@ let apple = 'orange'
     let fruit = {
         [apple] : 5
     }
-    // console.log(fruit);
+
+    
+
+    function checkJS () {
+    let buttonJS = document.querySelector('#buttonJS') as HTMLButtonElement
+    let switcher = true
+        buttonJS.addEventListener('click', ()=> {
+        if (switcher == true) {
+            switcher = false
+        } else {
+            switcher = true
+        }
+        console.log(switcher);
+        
+    })        
+    }
+
+ 
+    // Хук - своеобразный обработчик событий, который возникает в 
+    // процессе работы с компонентом
+    // (отображение компонента в DOM дереве)
+
+    
+    setTimeout(() => {
+    }, 100);
+
+    
+    onMounted (()=> {
+        checkJS()
+        console.log('onMounted');
+    }) 
+    
+    onBeforeMount (()=> {
+        console.log('onBeforeMount');
+    })
+    
+    
+onUnmounted (()=> {
+    checkJS()
+    console.log('test2');
+    
+}) 
+
     
 </script>
 
