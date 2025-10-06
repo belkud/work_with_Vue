@@ -170,10 +170,7 @@ let apple = 'orange'
     // (отображение компонента в DOM дереве)
 
     
-    setTimeout(() => {
-    }, 100);
-
-    
+     
     onMounted (()=> {
         checkJS()
         console.log('onMounted');
