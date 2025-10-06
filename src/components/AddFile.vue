@@ -11,7 +11,7 @@ import { ref, onBeforeMount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, 
 // до уничтожения компонента.
 
 onBeforeMount(()=> {
-  console.log('onBeforeMount');
+  // console.log('onBeforeMount');
 })
 // onBeforeUpdate(()=> {
 //   console.log('onBeforeUpdate');
@@ -97,6 +97,7 @@ function changeBackground () {
     background.value = 'blue' 
   }
 }
+
 
 
 // str.value = day.toISOString()
