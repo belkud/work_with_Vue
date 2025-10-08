@@ -44,9 +44,25 @@ import UsersForum from "./components/UsersForum.vue";
 <template>
 
 
+<RouterLink to="/">На главную</RouterLink>
+<RouterLink to="/about">About</RouterLink>
+
+<RouterView></RouterView>
+
+
+
+
+
+
+
+
 <users-forum></users-forum>
 
 <testvue></testvue>
+
+
+
+
 
 
 <AddFile4>
