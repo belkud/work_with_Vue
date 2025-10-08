@@ -14,6 +14,9 @@ import TheButton from "./components/TheButton.vue";
 import testvue from "./components/test.vue";
 import UsersForum from "./components/UsersForum.vue";
 
+import HomeWork from "./components/HomeWork.vue";
+
+
 
 // const testProps = ref('передаем пропс')
 // <script>
@@ -43,13 +46,30 @@ import UsersForum from "./components/UsersForum.vue";
 
 <template>
 
+<home-work/>
 
-<RouterLink to="/">На главную</RouterLink>
-<RouterLink to="/about">About</RouterLink>
+
+  <div style="display: flex; margin: 10px; gap: 25px;">
+    <RouterLink to="/">На главную</RouterLink>
+    <RouterLink to="/about">About</RouterLink>
+  </div>
 
 <RouterView></RouterView>
 
 
+
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
