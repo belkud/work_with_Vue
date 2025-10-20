@@ -15,6 +15,8 @@ import testvue from "./components/test.vue";
 import UsersForum from "./components/UsersForum.vue";
 
 import HomeWork from "./components/HomeWork.vue";
+import ChangeDigital from "./components/ChangeDigital.vue";
+import AddColorBlock from "./components/AddColorBlock.vue";
 
 
 
@@ -45,6 +47,9 @@ import HomeWork from "./components/HomeWork.vue";
 <!--! Все основная инфа в AddFile -->
 
 <template>
+  <add-color-block/>
+
+  <change-digital />
 
   <home-work />
 

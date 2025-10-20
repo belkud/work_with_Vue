@@ -2,6 +2,13 @@
 
 <template>
     <h3>Файл HomeWork</h3>
+
+<ul v-for="(link, index) in links" :key="link.id">
+  обращение по индексу = {{ index+1 }} <br>
+  обращение через Id (более надежный способ) = {{ link.id }} <br>
+</ul>
+
+
     <div>Задание 1
 Создать html-страницу для ввода имени пользователя.
 Необходимо проверять каждый символ, который вводит поль-
@@ -31,6 +38,15 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+
+let links = ref ([
+    {id:1, link:'https://dzen.ru/'},
+    {id:2, link:'localhost:5173/'},
+    {id:3, link:'https://boosty.to/m0rtymerr/posts/'},
+    {id:4, link:'localhost:5175/'},
+])
+
+
 
 // Задание 1
 function checkLetters (e:any) {

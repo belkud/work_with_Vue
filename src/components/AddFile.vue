@@ -117,6 +117,8 @@ function changeColor() {
     'background-color : blue'
   ]
 }
+
+let clickBtn2 = ref('')
 </script>
 
 
@@ -157,8 +159,6 @@ function changeColor() {
     <!--! v-bind — это "одностороннее связывание данных" (class, style, src, href)  -->
     <button id="clickBtn"  :style="'background:' +background"  @click="count++;  console.log(count); changeBackground() ">счёт: {{ count }} </button>
     <!--! Все условия лучше закидывать в функцию чтобы не писать через ';' -->
-
-
 
 <button @click="click2">My button {{ 12+10 }}</button>
 <input @keydown.prevent v-on:keydown="console.log('test')" >My button</input>
