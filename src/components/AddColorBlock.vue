@@ -10,28 +10,20 @@
 <br>
 
 
-<div name="fade" tag="div" style="display: flex; gap: 15px; width: 500px; flex-wrap: wrap;">
-    
-    <div 
-        v-for="(block, index) in blocks" 
-        :key="block.id"
-        class="color-block"
-        :style="{ backgroundColor: block.color,
+<div id="container_block" >    
+    <div v-for="(block, index) in blocks" :style="{ 
+            backgroundColor: block.background,
             width:'100px',
         }"
-        @click="removeBlock(index)"
->
-        <div class="block-info">
-            {{ block.color }}
-        </div>
-    </div>
+        
+@click="deleteBlock(index)">{{index+1}}, {{ block.background }}</div>
 
 </div>
 
 
-<button @click="addBlock">Add block </button>
+<button @click="addBlock">Add block</button>
 
-
+<button @click="console.log(getRandomColor())">test color</button>
 </template>
 
 
@@ -40,32 +32,28 @@
 import { ref } from "vue";
 
 
-
-
-// второе задание
-
-
-
 const blocks = ref([]);
-let blockId = 1;
 
 // Генерация случайного цвета в формате RGB
-const getRandomColor = () => {
-    const red = Math.floor(Math.random() * 256);
-    const green = Math.floor(Math.random() * 256);
-    const blue = Math.floor(Math.random() * 256);
+function getRandomColor () {
+    const red = Math.round(Math.random() * 256);
+    const green = Math.round(Math.random() * 256);
+    const blue = Math.round(Math.random() * 256);
     return `rgb(${red}, ${green}, ${blue})`;
 };
 
-    // Добавление нового блока
-const addBlock = () => {
+
+    // Добавление rgb значений в массив
+function addBlock() {
     blocks.value.push({
-        id: blockId++,
-        color: getRandomColor()
-    });
+    background: getRandomColor()
+});
+    
+console.log(...blocks.value);
 };
 
-const removeBlock = (index:any) => {
+// Удаление выбранного блока
+function deleteBlock (index:any) {
     blocks.value.splice(index, 1);
 };
  
@@ -76,7 +64,13 @@ const removeBlock = (index:any) => {
 
 
 <style scoped>
-
+#container_block {
+    display: flex; 
+    gap: 15px; 
+    width: 500px; 
+    flex-wrap: wrap; 
+    border: 1px solid white;    
+}
 
 </style>
 

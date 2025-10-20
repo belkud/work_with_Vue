@@ -17,6 +17,7 @@ import UsersForum from "./components/UsersForum.vue";
 import HomeWork from "./components/HomeWork.vue";
 import ChangeDigital from "./components/ChangeDigital.vue";
 import AddColorBlock from "./components/AddColorBlock.vue";
+import AddBlock222 from "./components/AddBlock222.vue";
 
 
 
@@ -47,6 +48,8 @@ import AddColorBlock from "./components/AddColorBlock.vue";
 <!--! Все основная инфа в AddFile -->
 
 <template>
+  <AddBlock222></AddBlock222>
+
   <add-color-block/>
 
   <change-digital />
