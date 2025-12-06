@@ -3,10 +3,11 @@
     <br>
     <br>
     <div>Нажми на кота</div>
-    <img @click="jumpCat" id="cat" src="/public/cat.jpg" width="100px" alt="">
+    <img @click="jumpCat" id="cat" src="/cat.jpg" width="100px" alt="">
 </template>
 
 <script setup lang="ts">
+    // let a = 10
 // import { ref } from "vue";
 
 function jumpCat (e:any) {
