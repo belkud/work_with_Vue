@@ -2,6 +2,7 @@
 
 
 // <!--! названия фалов всегда двумя словами и с большой буквы -->
+import JumpAnimal from './components/JumpAnimal.vue'
 import AddFile from './components/AddFile.vue'
 import AddFile4 from "./components/AddFile4.vue";
 import RandomNumber from "./components/RandomNumber.vue";
@@ -20,34 +21,33 @@ import AddColorBlock from "./components/AddColorBlock.vue";
 import AddBlock222 from "./components/AddBlock222.vue";
 
 
-
 // const testProps = ref('передаем пропс')
 // <script>
 // let acc = 1 
 // setInterval (()=> {
-//   acc++
-//   console.log(acc);
-// },1000)
-
-
-
-
-
-
-
-
-
+  //   acc++
+  //   console.log(acc);
+  // },1000)
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </script>
 
 
-<!--! обязательно скачать Vue (Official) -->
 
-
-<!--! официальный сайт https://ru.vuejs.org/ -->
 
 <!--! Все основная инфа в AddFile -->
 
 <template>
+
+  <jump-animal/>
+  
   <AddBlock222></AddBlock222>
 
   <add-color-block/>
