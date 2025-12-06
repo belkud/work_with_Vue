@@ -12,7 +12,7 @@
 
 <div id="container_block" >    
     <div v-for="(block, index) in blocks" :style="{ 
-            backgroundColor: block.background,
+            backgroundColor: `${block.background}`,
             width:'100px',
         }"
         
@@ -31,8 +31,12 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
+interface Block {
+    background: string;
+}
 
-const blocks = ref([]);
+
+const blocks = ref<Block[]>([]);
 
 // Генерация случайного цвета в формате RGB
 function getRandomColor () {
@@ -41,6 +45,8 @@ function getRandomColor () {
     const blue = Math.round(Math.random() * 256);
     return `rgb(${red}, ${green}, ${blue})`;
 };
+
+
 
 
     // Добавление rgb значений в массив
