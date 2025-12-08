@@ -29,11 +29,14 @@
 
 
 <script setup lang="ts">
-import { ref } from "vue";
+    import { ref } from "vue";
+    let d = 15
 
 interface Block {
     background: string;
 }
+
+
 
 
 const blocks = ref<Block[]>([]);

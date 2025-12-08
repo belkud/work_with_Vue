@@ -3,7 +3,6 @@ import { ref, onBeforeMount, onBeforeUpdate, onMounted, onUnmounted, onUpdated, 
 
 
 
-
 // хуки жизненнего цикла
 
 // В Vue.js хуки жизненного цикла - это функции, которые вызываются на различных 
