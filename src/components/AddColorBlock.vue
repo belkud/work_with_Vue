@@ -34,6 +34,8 @@ import { ref } from "vue";
 
 const blocks = ref([]);
 // test
+// test
+// test
 // Генерация случайного цвета в формате RGB
 function getRandomColor () {
     const red = Math.round(Math.random() * 256);
