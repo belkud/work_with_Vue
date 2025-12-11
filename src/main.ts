@@ -2,6 +2,7 @@
 import { createApp } from 'vue' 
 
 import './style.css'
+// import './style.css'
 
 //! 2. Импортируем корневой компонент нашего приложения
 import App from './App.vue'
