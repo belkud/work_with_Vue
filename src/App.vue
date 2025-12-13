@@ -20,6 +20,9 @@ import ChangeDigital from "./components/ChangeDigital.vue";
 import AddColorBlock from "./components/AddColorBlock.vue";
 import AddBlock222 from "./components/AddBlock222.vue";
 
+import HomeWork2 from "./components/HomeWork2.vue";
+
+
 
 // const testProps = ref('передаем пропс')
 // <script>
@@ -34,9 +37,6 @@ import AddBlock222 from "./components/AddBlock222.vue";
   
   
   
-  
-  
-  
 </script>
 
 
@@ -45,7 +45,9 @@ import AddBlock222 from "./components/AddBlock222.vue";
 <!--! Все основная инфа в AddFile -->
 
 <template>
+<HomeWork2/>
 
+  <testvue></testvue>
   <jump-animal/>
   
   <AddBlock222></AddBlock222>
@@ -85,7 +87,7 @@ import AddBlock222 from "./components/AddBlock222.vue";
 
   <users-forum></users-forum>
 
-  <testvue></testvue>
+
 
 
 

@@ -1,6 +1,6 @@
 <template>
     <h2>AddBlock222</h2>
-
+   
     <div id="container_block" style="display: flex; gap: 20px; flex-wrap: wrap; max-width: 500px; border: 1px solid wheat;">
             <div style="anim"  v-for="(value, index) in massiveColors" @click="deleteBlock(index)" :style="{
                 background: value.background,
@@ -21,7 +21,15 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-let massiveColors = ref([])
+ 
+
+ interface Block {
+  background: string;
+}
+
+ 
+let massiveColors = ref<Block[]>([])
+
 
 function createRandomColor() {
     let red = ref(Math.round(Math.random()*255))

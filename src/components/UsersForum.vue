@@ -78,22 +78,22 @@ function sendData() {
 // до уничтожения компонента.
 
 onBeforeMount(()=> {
-  console.log('onBeforeMount');
+//   console.log('onBeforeMount');
 })
 onBeforeUpdate(()=> {
-  console.log('onBeforeUpdate');
+//   console.log('onBeforeUpdate');
 })
 onMounted(()=> {
-  console.log('onMounted');
+//   console.log('onMounted');
 })
 onUnmounted(()=> {
-  console.log('onUnmounted');
+//   console.log('onUnmounted');
 })
 onUpdated(()=> {
-  console.log('onUpdated');
+//   console.log('onUpdated');
 })
 onBeforeUnmount(()=> {
-  console.log('onBeforeUnmount');
+//   console.log('onBeforeUnmount');
 })
   
 </script>

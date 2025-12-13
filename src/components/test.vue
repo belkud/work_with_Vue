@@ -1,6 +1,19 @@
 
 <template>
-    <h3>Привет от файла test.vue</h3>
+    <h3 :style="styleMass">Привет от файла test.vue</h3>
+<div>{{ styleMass }}</div>
+
+
+
+
+
+
+
+
+
+
+
+
     <button :style="mystyle"   @click.prevent="prevAction"> Плюсуем на <span class="font">{{ num }}</span> </button>
     <div :style="'font-size:' +num + 'em'">{{ num }}</div>
 
@@ -8,7 +21,7 @@
 
 <br>
 
-    <select  @click="console.log()">
+    <select  @click="">
             <option value="All">All</option>
             <option value="Learn">Learn</option>
             <option value="Read">Read</option>
@@ -50,29 +63,12 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 </template>
 
 
 <script setup lang="ts">
-    import { computed, ref, onMounted, onUnmounted, onBeforeMount, watch, vModelSelect } from "vue";
+    import {ref, onMounted, onUnmounted, onBeforeMount, } from "vue";
 
 
 
@@ -82,7 +78,18 @@
         {index:2, words : 'Build Something'},
     ])
 
- 
+    let back = ref(
+        {class: 'background'}
+    )
+    
+    let styleMass =ref([
+        {color: 'green'},
+        {background: 'red'},
+    ])
+
+
+    console.log(...styleMass.value);
+    
 
     let hideButtonCity = ref(true)
     let hi = ref('Hello')
@@ -105,24 +112,24 @@
     ])
 
 
-    const filteredArr = (computed(()=> {
-        // if (sele) {
+    // const filteredArr = (computed(()=> {
+    //     // if (sele) {
             
-        // } else {
+    //     // } else {
             
-        // }
-    }))
+    //     // }
+    // }))
 
 
 
 
 
 // console.log(cities.toString().split(',').join('\n'))
-let citiesInNewRow = cities.toString().split(',').join('\n')
+// let citiesInNewRow = cities.toString().split(',').join('\n')
 
-    const newUsers = Object.keys(users)
+//     const newUsers = Object.keys(users)
 
-    const keys = Object.keys(users)
+//     const keys = Object.keys(users)
     // console.log(keys);
 
 
@@ -138,15 +145,15 @@ let citiesInNewRow = cities.toString().split(',').join('\n')
     let text = ref ('')    
 // 
 
-    function prevAction (e:any) {
+    function prevAction () {
         num.value++
     }
 
-let apple = 'orange'
+// let apple = 'orange'
 
-    let fruit = {
-        [apple] : 5
-    }
+    // let fruit = {
+    //     [apple] : 5
+    // }
 
     
 
@@ -159,7 +166,7 @@ let apple = 'orange'
         } else {
             switcher = true
         }
-        console.log(switcher);
+        // console.log(switcher);
         
     })        
     }
@@ -173,17 +180,17 @@ let apple = 'orange'
      
     onMounted (()=> {
         checkJS()
-        console.log('onMounted');
+        // console.log('onMounted');
     }) 
     
     onBeforeMount (()=> {
-        console.log('onBeforeMount');
+        // console.log('onBeforeMount');
     })
     
     
 onUnmounted (()=> {
     checkJS()
-    console.log('test2');
+    // console.log('test2');
     
 }) 
 
@@ -192,12 +199,15 @@ onUnmounted (()=> {
 
 
 <style scoped>
-
+.background{
+    background: orange;
+    color: red;
+}
 
 </style>
 
 
-<!--! диерктива v-bind -->
+<!--! директива v-bind -->
  <!--! v-model -->
 
  <!--! функции две -->

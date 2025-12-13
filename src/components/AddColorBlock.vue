@@ -3,7 +3,7 @@
 <h2>AddColorBlock</h2>
 
 
-<div><span :style="'color:' +fontColor">Задание 2</span> <br> Создать html-страницу с кнопкой, по нажатию на которую 
+<div><span>Задание 2</span> <br> Создать html-страницу с кнопкой, по нажатию на которую 
 добавляются цветные блоки на страницу. По клику на сам блок, 
 он должен удаляться со страницы.</div>
 <br>
@@ -30,7 +30,6 @@
 
 <script setup lang="ts">
     import { ref } from "vue";
-    let d = 15
 
 interface Block {
     background: string;
