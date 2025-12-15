@@ -78,10 +78,7 @@
         {index:2, words : 'Build Something'},
     ])
 
-    let back = ref(
-        {class: 'background'}
-    )
-    
+ 
     let styleMass =ref([
         {color: 'green'},
         {background: 'red'},
