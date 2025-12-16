@@ -17,7 +17,7 @@
 <div :class="addClass">< class: {{ addClass }} >,  Lorem ipsum dolor sit amet consectetur, adipisicing elit.</div>
 
 <!-- bind через style -->
-<div :style="addStyle">{{ addStyle }}</div>
+<div  :style="addStyle">{{ addStyle }}</div>
 
 <!-- циклы -->
 <div v-for="value, i in addStyle">{{i}}, {{ value }}</div>
@@ -31,7 +31,8 @@
 <div> число {{ number%2 ? 'нечётное' : 'чётное' }}</div>
 
 <br>
-<button ref="myRef" id="testBtn" @click="">123</button>
+<div>меняем цвет темы</div>
+<button  id="testBtn" @click="changeTheme">{{ theme==false ? 'темная' : 'светлая' }}</button>
 <br><br><br><br><br><br><br><br><br>
 </template>
 
@@ -42,8 +43,28 @@
 
 
 <script setup lang="ts">
-import {ref, onMounted } from 'vue'
+import {ref, onMounted, watch } from 'vue'
 
+const bodyColor = document.documentElement
+// --color - primary: rgb(255, 255, 255);
+
+
+
+
+
+let theme = ref(true);
+function changeTheme() {
+    theme.value = !theme.value
+        if (theme.value==true) {
+            bodyColor.style.setProperty('--color-bg', 'gray')
+            bodyColor.style.setProperty('--color-primary', 'black')
+        } else {
+            bodyColor.style.setProperty('--color-bg', 'black')       
+            bodyColor.style.setProperty('--color-primary', 'white')
+        }
+    }
+    
+ 
 let number = ref(5) 
 // setInterval(()=> {
 //     number.value++
@@ -57,25 +78,23 @@ let addStyle = ref([
 
 let link = ref('https://dzen.ru/?clid=2233626&yredirect=true') 
 
+  
 // Создаем ref для кнопки
- 
-// Создаем ref для кнопки
-const myRef = ref(null);
+// const changeTheme = ref('');
 
-    // Выводим кнопку в консоль
-    onMounted(()=> {
-        // первый способ
-        console.log(myRef.value);
+//     // Выводим кнопку в консоль
+//     onMounted(()=> {
+//         // первый способ
+//         // console.log(changeTheme.value);
         
-        // второй способ
-        const testBtn: any = document.getElementById('testBtn')
-        console.log(testBtn);
+//         // второй способ
+//         const testBtn = document.getElementById('testBtn')
+//         // console.log(testBtn);
  
-    })
- 
-    
+//     })
+
 let bool = ref(true)
-console.log(addStyle);
+// console.log(addStyle);
 
 let swithers = true
  function showSwithcer() {
@@ -84,10 +103,14 @@ let swithers = true
     } else {
         swithers = true
     }
-    console.log(swithers);
+    // console.log(swithers);
     
  }
 showSwithcer()
+
+ 
+
+
 
 </script>
 
