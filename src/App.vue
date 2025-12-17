@@ -44,7 +44,12 @@ import HomeWork2 from "./components/HomeWork2.vue";
 
 <!--! Все основная инфа в AddFile -->
 
-<template v-slot:footer>
+<template>
+<!--   
+<HomeWork>
+  <template v-slot:extraSlot>rrrrrrrrr</template>
+</HomeWork> -->
+
 <HomeWork2>
   <h4>Использование slotа</h4>
   
@@ -72,9 +77,15 @@ import HomeWork2 from "./components/HomeWork2.vue";
 <br>
 
 
-    <template v-slot:btn>кнопка 1</template>
-    <template v-slot:btn2>кнопка 2</template>
+<template v-slot:btn>кнопка 1</template>
+<template v-slot:btn2>кнопка 2</template>
 
+<!-- укороченная запись через # -->
+<template #viteSvg> 
+  <img src="/public/vite.svg" width="90px" alt="" srcset="">
+</template>
+
+<template #sign>+</template>
 
 </HomeWork2>
 
@@ -110,9 +121,6 @@ import HomeWork2 from "./components/HomeWork2.vue";
   <br>
   <br>
   <br>
-
-
-
 
 
 

@@ -39,6 +39,7 @@
 
     <header>
         <slot name="header"></slot> <!-- 👈 Сюда попадет #header -->
+        <slot name="sign"></slot>
     </header>
 
     <!-- <main> -->
@@ -53,13 +54,42 @@
 
 <!-- создать две кнопки с разными слотс -->
 
+<slot name="viteSvg"></slot>
+
 <br>
+<button>
     <slot name="btn"></slot>
-    <br>
+</button>
+<br>
+<button>
+    <slot name="btn2"></slot>
+</button>
+<br>
+<button>
+    <slot name="btn"></slot>
+</button>
+    <!-- <br>
     <slot name="btn2"></slot>
     <br>
-    <slot name="btn"></slot>
+    <slot name="btn"></slot> -->
 <br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </template>
 
 

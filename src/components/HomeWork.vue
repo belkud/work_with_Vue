@@ -2,7 +2,7 @@
 
 <template>
     <h3>Файл HomeWork</h3>
-
+<slot name="extraSlot">Дополнительный слот</slot>
 <ul v-for="(link, index) in links" :key="link.id">
   обращение по индексу = {{ index+1 }} <br>
   обращение через Id (более надежный способ) = {{ link.id }} <br>
