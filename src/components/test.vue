@@ -1,8 +1,8 @@
 
 <template>
     <h3 :style="styleMass">Привет от файла test.vue</h3>
-<div>{{ styleMass }}</div>
-
+    <div>{{ styleMass }}</div>
+    
 
 
 

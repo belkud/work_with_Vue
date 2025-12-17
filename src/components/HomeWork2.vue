@@ -1,5 +1,5 @@
 
-<template>
+<template >
 <div>File homework2</div>
  
 
@@ -33,6 +33,32 @@
 <br>
 <div>меняем цвет темы</div>
 <button  id="testBtn" @click="changeTheme">{{ theme==false ? 'темная' : 'светлая' }}</button>
+<div>Ширина вашего экрана {{ screenWidth }} px</div>
+
+<slot></slot>
+
+    <header>
+        <slot name="header"></slot> <!-- 👈 Сюда попадет #header -->
+    </header>
+
+    <!-- <main> -->
+        <slot name="main"></slot>
+    <!-- </main> -->
+    
+
+  
+
+
+
+
+<!-- создать две кнопки с разными слотс -->
+
+<br>
+    <slot name="btn"></slot>
+    <br>
+    <slot name="btn2"></slot>
+    <br>
+    <slot name="btn"></slot>
 <br><br><br><br><br><br><br><br><br>
 </template>
 
@@ -45,14 +71,17 @@
 <script setup lang="ts">
 import {ref, onMounted, watch } from 'vue'
 
+ 
+const checkWidth =document.documentElement
+let screenWidth = ref(parseInt(getComputedStyle(checkWidth).width))
+
+window.addEventListener('resize', ()=> {
+    screenWidth.value = parseInt(getComputedStyle(checkWidth).width);
+})
+
 const bodyColor = document.documentElement
-// --color - primary: rgb(255, 255, 255);
-
-
-
-
-
 let theme = ref(true);
+
 function changeTheme() {
     theme.value = !theme.value
         if (theme.value==true) {
@@ -62,6 +91,8 @@ function changeTheme() {
             bodyColor.style.setProperty('--color-bg', 'black')       
             bodyColor.style.setProperty('--color-primary', 'white')
         }
+   
+    console.log(getComputedStyle(document.documentElement).getPropertyValue('--color-primary'));
     }
     
  
@@ -109,6 +140,8 @@ let swithers = true
 showSwithcer()
 
  
+
+// let width = ref('')
 
 
 

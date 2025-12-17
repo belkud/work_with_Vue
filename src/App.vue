@@ -44,8 +44,39 @@ import HomeWork2 from "./components/HomeWork2.vue";
 
 <!--! Все основная инфа в AddFile -->
 
-<template>
-<HomeWork2/>
+<template v-slot:footer>
+<HomeWork2>
+  <h4>Использование slotа</h4>
+  
+  <!-- безымянный слот -->
+  <div> 
+    (slot - передает контент из родительского компонета в дочерний)
+  </div>
+
+
+  <!-- именнованный слот -->
+    <template v-slot:header>
+      <h3>Мой сайт</h3>
+      <nav>Главная | О нас | Контакты</nav>
+    </template>
+
+    <template v-slot:main>
+      Основное меню
+    </template>
+
+    <div>Здесь footer</div>
+
+ 
+
+
+<br>
+
+
+    <template v-slot:btn>кнопка 1</template>
+    <template v-slot:btn2>кнопка 2</template>
+
+
+</HomeWork2>
 
   <testvue></testvue>
   <jump-animal/>
