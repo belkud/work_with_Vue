@@ -37,6 +37,7 @@
 
 <slot></slot>
 
+<input type="text" v-bind:placeholder="number">
     <header>
         <slot name="header"></slot> <!-- 👈 Сюда попадет #header -->
         <slot name="sign"></slot>
