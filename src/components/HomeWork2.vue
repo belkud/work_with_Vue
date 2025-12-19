@@ -6,10 +6,10 @@
 
 
 <!--! Список заметок -->
-
+<h3>Создание блокнота с заметками</h3>
 <input v-model="notes" type="text" placeholder="Заметка">
-<ol>
-    <li class="list" v-for="note in notesArray">{{ note }}</li>
+<ol @click="deleteItem">
+    <li class="list" v-for="note in notesArray" >{{ note }}<button class="delete">×</button></li>
 </ol>
 <button @click="addMark"> Добавить заметку</button>
 
@@ -146,12 +146,19 @@ let notesArray = ref<string[]>([])
 function addMark () {
     if (notes.value != '') {
         notesArray.value.push(notes.value)
-        console.log(notesArray.value); 
     }
     
     notes.value = ''
 }
 
+function deleteItem (e:any) {
+    if (e.target.nodeName == 'BUTTON') {
+        e.target.closest('li').remove()
+    }
+        
+    console.log(e.target.nodeName);
+    
+}
 
 
 
@@ -273,7 +280,7 @@ showSwithcer()
 }
 
 .list {
-    width: 100px;
+    width: 200px;
     padding: 5px;
     transition: .3s;
     border: 1px solid transparent;
@@ -282,6 +289,15 @@ showSwithcer()
 .list:hover {
     background-color: gray;
     border: 1px solid aqua;
-    
 }
+.delete {
+    border: 1px solid aqua;
+    background: red;
+    padding: 0em 0em;
+    font-size: 1em;
+    margin-left: 50px;
+    border-radius: 2px;
+    width: 20px;
+}
+    
 </style>
