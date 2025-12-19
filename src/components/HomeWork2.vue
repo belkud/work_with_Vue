@@ -1,12 +1,15 @@
 
 <template >
-<div>File homework2</div>
+<div> {{ title }} </div>
  
 
+<textarea name="" id="" v-model="textAreaText" :placeholder="placeholderText">cxvcxsdfsdf</textarea>
+
+<div style="min-height: 50px;">{{ textAreaText }}</div>
 
 
-
-
+<input type="text" v-model="textInput" @input="showSymbols">
+<div style="min-height: 50px;">{{ textInput }}</div>
 
 
 
@@ -37,7 +40,7 @@
 
 <slot></slot>
 
-<input type="text" v-bind:placeholder="number">
+<input type="text" v-bind:placeholder="`${number}`">
     <header>
         <slot name="header"></slot> <!-- 👈 Сюда попадет #header -->
         <slot name="sign"></slot>
@@ -100,8 +103,19 @@
 
 
 <script setup lang="ts">
-import {ref, onMounted, watch } from 'vue'
+import { ref } from 'vue'
 
+let textAreaText = ref('')
+let textInput = ref('')
+
+function showSymbols (e:any) {
+    console.log(`${e.data}`);
+    console.log(textInput.value);
+    
+}
+
+const title = ref('File homework2')
+const placeholderText = ref('Введите сюда текст')
  
 const checkWidth =document.documentElement
 let screenWidth = ref(parseInt(getComputedStyle(checkWidth).width))
