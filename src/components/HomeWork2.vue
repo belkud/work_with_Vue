@@ -3,12 +3,62 @@
 <div> {{ title }} </div>
  
 
+
+
+<!--! Список заметок -->
+
+<input v-model="notes" type="text" placeholder="Заметка">
+<ol>
+    <li class="list" v-for="note in notesArray">{{ note }}</li>
+</ol>
+<button @click="addMark"> Добавить заметку</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+<br>
 <textarea name="" id="" v-model="textAreaText" :placeholder="placeholderText">cxvcxsdfsdf</textarea>
 
 <div style="min-height: 50px;">{{ textAreaText }}</div>
 
 
-<input type="text" v-model="textInput" @input="showSymbols">
+<!-- без v-model -->
+<input type="text" @input="showSymbols">
+<div style="min-height: 50px;">inputsText: {{ inputsText }}</div>
+
+<!-- с v-model -->
+<input type="text" v-model="textInput">
 <div style="min-height: 50px;">{{ textInput }}</div>
 
 
@@ -78,21 +128,7 @@
     <slot name="btn"></slot> -->
 <br><br><br><br><br><br><br><br><br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 </template>
 
@@ -105,15 +141,47 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+let notes = ref('')
+let notesArray = ref<string[]>([])
+function addMark () {
+    if (notes.value != '') {
+        notesArray.value.push(notes.value)
+        console.log(notesArray.value); 
+    }
+    
+    notes.value = ''
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let textAreaText = ref('')
 let textInput = ref('')
 
+let inputsText = ref('')
 function showSymbols (e:any) {
-    console.log(`${e.data}`);
-    console.log(textInput.value);
-    
+    inputsText.value = e.target.value
 }
-
+  
+    
+// console.time('timer'); console.timeEnd('timer');
 const title = ref('File homework2')
 const placeholderText = ref('Введите сюда текст')
  
@@ -204,4 +272,16 @@ showSwithcer()
     color: var(--color-secondary);
 }
 
+.list {
+    width: 100px;
+    padding: 5px;
+    transition: .3s;
+    border: 1px solid transparent;
+    list-style-position: inside;
+}
+.list:hover {
+    background-color: gray;
+    border: 1px solid aqua;
+    
+}
 </style>
