@@ -3,38 +3,25 @@
 <div> {{ title }} </div>
  
 
-
+<input v-model="pop" type="text">
+<div>{{ pop }}</div>
 
 <!--! Список заметок -->
-<h3>Создание блокнота с заметками</h3>
-<input v-model="notes" type="text" placeholder="Заметка">
-<ol @click="deleteItem">
-    <li class="list" v-for="note in notesArray" >{{ note }}<button class="delete">×</button></li>
-</ol>
-<button @click="addMark"> Добавить заметку</button>
 
+<div id="notesContainer">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <h3>Список с заметками</h3>
+    <input
+    @keypress.enter="addMark" v-model="notes" type="text" placeholder="Заметка" 
+    :style="{ color: notes.length > 10 ? 'red' : 'white' }">
+    <ol @click="deleteItem($el)">
+        <li class="list" v-for="(note) in notesArray" >{{ toUpperCase(note) }}<button class="deleteBtn">×</button></li>
+    </ol>
+    <button @click="addMark"> Добавить заметку</button>
+    <div :style="myDiv">Напишите что-нибудь</div>
+    <hr>
+    <div>{{ notesArray.length==0 ? 'Пожалуйста, добавьте первую заметку' : `Количество заметок: ${notesArray.length}`}} </div>
+</div>
 
 
 
@@ -141,32 +128,53 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+let pop = ref('')
+const myDiv = ref({color:'transparent'});
+
+
 let notes = ref('')
 let notesArray = ref<string[]>([])
 function addMark () {
+    // console.log('Событие:', event.type);
+console.log(notesArray.value);
+
+    myDiv.value.color = 'red'
+
     if (notes.value != '') {
         notesArray.value.push(notes.value)
+        myDiv.value.color = 'transparent'
     }
     
     notes.value = ''
 }
 
-function deleteItem (e:any) {
-    if (e.target.nodeName == 'BUTTON') {
-        e.target.closest('li').remove()
-    }
-        
-    console.log(e.target.nodeName);
-    
+function deleteItem (index:number) {
+    notesArray.value.splice(index,1)
+}
+function toUpperCase (note:string) {
+    return note.toUpperCase()
 }
 
+// второй вариант
+// function deleteItem2 (e:any) {
+//     if (e.target.nodeName == 'BUTTON') {
+//         e.target.closest('li').remove()
+//     }
+    
+//     console.log(e.target.nodeName);
+    
+// }
+
+// function clearInput(e:any) {
+//     if (e.key == 'Enter') {
+//         addMark()
+//         notes.value = ''
+//     }
+    
+// }
 
 
-
-
-
-
-
+ 
 
 
 
@@ -274,6 +282,16 @@ showSwithcer()
 
 
 <style scoped>
+#notesContainer {
+    /* background: gray; */
+    border-radius: 25px;
+    padding: 20px;
+    padding-top: 10px;
+    margin-top: 25px;
+    border: 1px solid aqua;
+    
+}
+    
 .changeColor {
     font-size: 1.2em;
     color: var(--color-secondary);
@@ -285,12 +303,13 @@ showSwithcer()
     transition: .3s;
     border: 1px solid transparent;
     list-style-position: inside;
+    text-align: left;
 }
 .list:hover {
     background-color: gray;
     border: 1px solid aqua;
 }
-.delete {
+.deleteBtn {
     border: 1px solid aqua;
     background: red;
     padding: 0em 0em;
@@ -299,5 +318,10 @@ showSwithcer()
     border-radius: 2px;
     width: 20px;
 }
-    
+    .isRed {
+        color: red;
+    }
+    .isTransparent {
+        color: transparent;
+    }
 </style>
