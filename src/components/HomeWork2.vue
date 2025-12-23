@@ -1,10 +1,42 @@
 
 <template >
-<div> {{ title }} </div>
- 
 
-<input v-model="pop" type="text">
-<div>{{ pop }}</div>
+
+<div v-text="title" >  </div>
+ 
+<br>
+<br>
+<br>
+
+<input v-model="textContent" type="text" v-cloak>
+
+<div :class="textContent.length<5 ? isRed : textContent.length<10 ? isOrange : textContent.length<15 ? one : textContent.length>20 ? isRed : one">{{ textContent }}
+</div>
+
+    
+<div :style="{fontSize: textContent.length/5 + 'em'}"
+v-html="textContent"
+></div>
+
+<div> {{ textContent }}</div>
+
+<div v-html="'<em> v-html </em>'"></div>
+<div v-text="'<em> v-text </em>'"></div>
+<div v-once>{{ textContent }}</div>
+<div v-pre>{{ textContent }}</div>
+<!-- 
+<ul>
+    <li class="list" v-for="(value, i) in mass">
+        {{i+1}} + {{ value }}</li>
+</ul>
+
+<ul>
+    <li class="list" v-for="(value) in 5"> {{ value }}</li>
+</ul> -->
+
+
+<div v-for="(val, key) of person">{{key}} = {{ val }}</div>
+
 
 <!--! Список заметок -->
 
@@ -13,25 +45,34 @@
     <h3>Список с заметками</h3>
     <input
     @keypress.enter="addMark" v-model="notes" type="text" placeholder="Заметка" 
-    :style="{ color: notes.length > 10 ? 'red' : 'white' }">
-    <ol @click="deleteItem($el)">
-        <li class="list" v-for="(note) in notesArray" >{{ toUpperCase(note) }}<button class="deleteBtn">×</button></li>
+    :style="{ 
+        color: notes.length < 5 ? 'red' : 'green' }">
+    <ol @click="deleteItem">
+        <li class="list" v-for="(note) in notesArray" >{{ toUpperCase(note) }}<button class="deleteBtn" >×</button></li>
     </ol>
     <button @click="addMark"> Добавить заметку</button>
     <div :style="myDiv">Напишите что-нибудь</div>
     <hr>
-    <div>{{ notesArray.length==0 ? 'Пожалуйста, добавьте первую заметку' : `Количество заметок: ${notesArray.length}`}} </div>
+    <div>{{ countNote==0 ? 'Пожалуйста, добавьте первую заметку' : `Количество заметок: ${countNote}`}} </div>
+
+        <div>Удаленные заметки:</div>
+    <div v-for="value in massWithdeletedNotes">{{ value }}</div>
 </div>
+ 
 
 
 
 
+<!-- динамическое применение стилей -->
+<input v-model="testModel"
+:style="testModel.length > 5 ? { color: 'red' } : { color: 'orange' }"
+></input>
 
+<!-- динамическое применение класса -->
+<input v-model="testModel" 
+:class="testModel.length > 5 ? isOrange : isRed"></input>
 
-
-
-
-
+ 
 <br>
 <br>
 <br>
@@ -88,9 +129,12 @@
     <!-- </main> -->
     
 
-  
 
 
+    <!-- :class="secondText.length > 5 ? one : two" -->
+<input type="text" v-model="secondText" 
+:class="{one}"
+>
 
 
 <!-- создать две кнопки с разными слотс -->
@@ -126,21 +170,74 @@
 
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch, computed } from 'vue'
 
-let pop = ref('')
+let person =ref({
+    name: 'John',
+    surname: 'Smith',
+    age: 30
+})
+
+// let mass = ref(['первый', 'второй', 'третий'])
+
+let one = ref('redBackground')
+
+
+ let secondText = ref('')
+
+let isRed = ref('isRedClass')
+let isOrange = ref('isOrangeClass')
+
+let testModel = ref('')
+
+
+let countNote = ref(0)
+watch(countNote,(oldVal, newVal)=>{
+    // console.log(`было: ${newVal}, стало:${oldVal}`);  
+})
+
+const price1 = ref(100)
+const price2 = ref(90)
+const price3 = ref(120)
+
+
+const totalPrice = computed(()=>{
+    return price1.value + price2.value + price3.value
+})
+console.log(totalPrice.value);
+
+
+
+
+
+
+
+
+
+
+
+let textContent = ref('<em>Текст</em> ')
 const myDiv = ref({color:'transparent'});
+
+
+
 
 
 let notes = ref('')
 let notesArray = ref<string[]>([])
+let massWithdeletedNotes = ref(['tesk'])
+console.log(massWithdeletedNotes.value);
+
+
 function addMark () {
-    // console.log('Событие:', event.type);
-console.log(notesArray.value);
-
     myDiv.value.color = 'red'
-
+setTimeout(()=> {
+    myDiv.value.color = 'transparent'
+},1000)
+    
+    
     if (notes.value != '') {
+        countNote.value++
         notesArray.value.push(notes.value)
         myDiv.value.color = 'transparent'
     }
@@ -148,40 +245,25 @@ console.log(notesArray.value);
     notes.value = ''
 }
 
-function deleteItem (index:number) {
-    notesArray.value.splice(index,1)
-}
+ 
 function toUpperCase (note:string) {
     return note.toUpperCase()
 }
 
 // второй вариант
-// function deleteItem2 (e:any) {
-//     if (e.target.nodeName == 'BUTTON') {
-//         e.target.closest('li').remove()
-//     }
-    
-//     console.log(e.target.nodeName);
-    
-// }
-
-// function clearInput(e:any) {
-//     if (e.key == 'Enter') {
-//         addMark()
-//         notes.value = ''
-//     }
-    
-// }
-
+function deleteItem (e:any) {
+    if (e.target.nodeName == 'BUTTON') {
+        e.target.closest('li').remove()
+        massWithdeletedNotes.value.push(e.target.closest('li').innerText)
+        console.log(massWithdeletedNotes.value);
+        console.log(e.target.closest('li').innerText);
+        
+        countNote.value--
+    }
+}
 
  
-
-
-
-
-
-
-
+ 
 
 
 
@@ -304,24 +386,42 @@ showSwithcer()
     border: 1px solid transparent;
     list-style-position: inside;
     text-align: left;
+    position: relative;
+    background-color: gray;
+    margin-top: 10px;
+    border-radius: 5px;
 }
 .list:hover {
-    background-color: gray;
-    border: 1px solid aqua;
+    /* border: 1px solid aqua; */
+    background-color: rgb(181, 58, 99);
 }
 .deleteBtn {
     border: 1px solid aqua;
     background: red;
     padding: 0em 0em;
     font-size: 1em;
-    margin-left: 50px;
     border-radius: 2px;
     width: 20px;
+    position: absolute;
+    top: 10%;
+    left: calc(100% - 20px);
 }
-    .isRed {
+    .isRedClass {
         color: red;
     }
-    .isTransparent {
-        color: transparent;
+
+    .isOrangeClass {
+        color: orange;
     }
+
+.redBackground {
+    background: red;
+}
+.greenBackground {
+    background: greenyellow;
+}
+
+[v-cloak] {
+    display: none;
+}
 </style>
