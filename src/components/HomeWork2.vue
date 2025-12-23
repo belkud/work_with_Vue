@@ -10,20 +10,15 @@
 
 <input v-model="textContent" type="text" v-cloak>
 
-<div :class="textContent.length<5 ? isRed : textContent.length<10 ? isOrange : textContent.length<15 ? one : textContent.length>20 ? isRed : one">{{ textContent }}
-</div>
 
-    
-<div :style="{fontSize: textContent.length/5 + 'em'}"
-v-html="textContent"
-></div>
 
 <div> {{ textContent }}</div>
 
-<div v-html="'<em> v-html </em>'"></div>
+<!-- изучение атрибутов -->
+<!-- <div v-html="'<em> v-html </em>'"></div>
 <div v-text="'<em> v-text </em>'"></div>
 <div v-once>{{ textContent }}</div>
-<div v-pre>{{ textContent }}</div>
+<div v-pre>{{ textContent }}</div> -->
 <!-- 
 <ul>
     <li class="list" v-for="(value, i) in mass">
@@ -44,9 +39,7 @@ v-html="textContent"
 
     <h3>Список с заметками</h3>
     <input
-    @keypress.enter="addMark" v-model="notes" type="text" placeholder="Заметка" 
-    :style="{ 
-        color: notes.length < 5 ? 'red' : 'green' }">
+    @keypress.enter="addMark" v-model="notes" type="text" placeholder="Заметка">
     <ol @click="deleteItem">
         <li class="list" v-for="(note) in notesArray" >{{ toUpperCase(note) }}<button class="deleteBtn" >×</button></li>
     </ol>
@@ -54,9 +47,11 @@ v-html="textContent"
     <div :style="myDiv">Напишите что-нибудь</div>
     <hr>
     <div>{{ countNote==0 ? 'Пожалуйста, добавьте первую заметку' : `Количество заметок: ${countNote}`}} </div>
+    
+    <br>
+    <div>Удаленные заметки:</div>
+    <div @click="deletedNotes.splice(index,1)" class="list deleteLine" v-for="(value, index) in deletedNotes">{{ value }}</div>
 
-        <div>Удаленные заметки:</div>
-    <div v-for="value in massWithdeletedNotes">{{ value }}</div>
 </div>
  
 
@@ -64,21 +59,21 @@ v-html="textContent"
 
 
 <!-- динамическое применение стилей -->
-<input v-model="testModel"
+<!-- <input v-model="testModel"
 :style="testModel.length > 5 ? { color: 'red' } : { color: 'orange' }"
-></input>
+></input> -->
 
 <!-- динамическое применение класса -->
-<input v-model="testModel" 
-:class="testModel.length > 5 ? isOrange : isRed"></input>
+<!-- <input v-model="testModel" 
+:class="testModel.length > 5 ? isOrange : isRed"></input> -->
 
  
 <br>
 <br>
 <br>
-<textarea name="" id="" v-model="textAreaText" :placeholder="placeholderText">cxvcxsdfsdf</textarea>
+<!-- <textarea name="" id="" v-model="textAreaText" :placeholder="placeholderText">cxvcxsdfsdf</textarea>
 
-<div style="min-height: 50px;">{{ textAreaText }}</div>
+<div style="min-height: 50px;">{{ textAreaText }}</div> -->
 
 
 <!-- без v-model -->
@@ -185,15 +180,12 @@ let one = ref('redBackground')
 
  let secondText = ref('')
 
-let isRed = ref('isRedClass')
-let isOrange = ref('isOrangeClass')
 
-let testModel = ref('')
 
 
 let countNote = ref(0)
 watch(countNote,(oldVal, newVal)=>{
-    // console.log(`было: ${newVal}, стало:${oldVal}`);  
+    console.log(`было: ${newVal}, стало:${oldVal}`);  
 })
 
 const price1 = ref(100)
@@ -225,8 +217,8 @@ const myDiv = ref({color:'transparent'});
 
 let notes = ref('')
 let notesArray = ref<string[]>([])
-let massWithdeletedNotes = ref(['tesk'])
-console.log(massWithdeletedNotes.value);
+let deletedNotes = ref<string[]>([])
+console.log(deletedNotes.value);
 
 
 function addMark () {
@@ -253,12 +245,12 @@ function toUpperCase (note:string) {
 // второй вариант
 function deleteItem (e:any) {
     if (e.target.nodeName == 'BUTTON') {
-        e.target.closest('li').remove()
-        massWithdeletedNotes.value.push(e.target.closest('li').innerText)
-        console.log(massWithdeletedNotes.value);
-        console.log(e.target.closest('li').innerText);
-        
+        const target = e.target.closest('li') 
+        target.remove()
+
+        deletedNotes.value.push(target.innerText.split('').splice(0, target.innerText.length - 1).join(''))
         countNote.value--
+        
     }
 }
 
@@ -269,7 +261,6 @@ function deleteItem (e:any) {
 
 
 
-let textAreaText = ref('')
 let textInput = ref('')
 
 let inputsText = ref('')
@@ -280,7 +271,6 @@ function showSymbols (e:any) {
     
 // console.time('timer'); console.timeEnd('timer');
 const title = ref('File homework2')
-const placeholderText = ref('Введите сюда текст')
  
 const checkWidth =document.documentElement
 let screenWidth = ref(parseInt(getComputedStyle(checkWidth).width))
@@ -371,6 +361,7 @@ showSwithcer()
     padding-top: 10px;
     margin-top: 25px;
     border: 1px solid aqua;
+    max-width: 500px;
     
 }
     
@@ -406,6 +397,10 @@ showSwithcer()
     top: 10%;
     left: calc(100% - 20px);
 }
+.deleteLine {
+    text-decoration: line-through;
+}
+
     .isRedClass {
         color: red;
     }
