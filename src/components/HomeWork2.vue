@@ -3,7 +3,24 @@
 
 
 <div v-text="title" >  </div>
- 
+ <div v-show="countNote > 5">Количество заметок больше 5</div>
+
+
+<br>
+<br>
+<br>
+
+
+<ul>
+    <li @click="mass.splice(i,1)"  v-for="(value, i) in mass">{{ value }}</li>
+</ul>
+
+<!-- <button @click="mass.sort() != mass.sort().reverse()">сортировка массива</button> -->
+<button v-show="boolean" @click="boolean=false, mass.sort().reverse()"> '▼ По убыванию' </button>
+<button v-show="!boolean" @click="boolean=true, mass.sort()"> '▲ По возрастанию' </button>
+<!-- <button @click="mass.sort().reverse()">сортировка массива</button> -->
+<div> {{ massNumbers.filter(e=> e%2==0) }} </div>
+
 <br>
 <br>
 <br>
@@ -31,6 +48,7 @@
 
 
 <div v-for="(val, key) of person">{{key}} = {{ val }}</div>
+<div v-for="(val, i) of addStyle">{{i}} = {{ val }}</div>
 
 
 <!--! Список заметок -->
@@ -56,8 +74,6 @@
  
 
 
-
-
 <!-- динамическое применение стилей -->
 <!-- <input v-model="testModel"
 :style="testModel.length > 5 ? { color: 'red' } : { color: 'orange' }"
@@ -81,7 +97,7 @@
 <div style="min-height: 50px;">inputsText: {{ inputsText }}</div>
 
 <!-- с v-model -->
-<input type="text" v-model="textInput">
+<input @input.prevent type="text" v-model="textInput">
 <div style="min-height: 50px;">{{ textInput }}</div>
 
 
@@ -173,12 +189,27 @@ let person =ref({
     age: 30
 })
 
-// let mass = ref(['первый', 'второй', 'третий'])
+let mass = ref(['первый', 'второй', 'третий'])
 
+let massNumbers = ref([ 1, 2, 3, 4, 5, 6, 7, 8])
 let one = ref('redBackground')
 
+let boolean = ref(true)
+// function options(){
+//     if (boolean.value==true) {
+//         boolean.value = false
+        
+//         mass.value.sort()
+//     } else {
+//         mass.value.reverse().sort()
+//         boolean.value=true
+//     }
+//     console.log(boolean.value);
+// } 
 
- let secondText = ref('')
+
+
+let secondText = ref('')
 
 
 
@@ -266,6 +297,7 @@ let textInput = ref('')
 let inputsText = ref('')
 function showSymbols (e:any) {
     inputsText.value = e.target.value
+    
 }
   
     
@@ -295,7 +327,7 @@ function changeTheme() {
     console.log(getComputedStyle(document.documentElement).getPropertyValue('--color-primary'));
     }
     
- 
+ let isAsc = ref(false)
 let number = ref(5) 
 // setInterval(()=> {
 //     number.value++
