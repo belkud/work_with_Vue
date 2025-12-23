@@ -32,7 +32,7 @@ import HomeWork2 from "./components/HomeWork2.vue";
   //   console.log(acc);
   // },1000)
   
-  
+
   
   
   

@@ -1,4 +1,3 @@
-
 <template >
 
 
@@ -45,8 +44,23 @@
 <ul>
     <li class="list" v-for="(value) in 5"> {{ value }}</li>
 </ul> -->
+<br>
+<br>
+<br>
+    <div @click="console.log('нажали на div')">
+        <!-- Добавляем .stop и .prevent к кнопке -->
+        <button @click.stop="console.log('нажали кнопку')">
+            какой-то текст
+        </button>
+    </div>
+
+    <!-- закидываем переменную в инпут вместо скрипта -->
+    <input ref="myInput" @keyup.shift.enter="addItem" type="text">
+<br>
 
 
+<br>
+<br>
 <div v-for="(val, key) of person">{{key}} = {{ val }}</div>
 <div v-for="(val, i) of addStyle">{{i}} = {{ val }}</div>
 
@@ -90,6 +104,19 @@
 <!-- <textarea name="" id="" v-model="textAreaText" :placeholder="placeholderText">cxvcxsdfsdf</textarea>
 
 <div style="min-height: 50px;">{{ textAreaText }}</div> -->
+
+<a @click.prevent href="https://sochi.hh.ru/search/vacancy?text=senior+frontend&hhtmFrom=resume_search_result&hhtmFromLabel=vacancy_search_line">Тестовая ссылка</a>
+
+<button @click.once="console.log('тест')">тест</button>
+
+<br>
+
+<br> 
+<br> 
+<br> 
+ 
+
+
 
 
 <!-- без v-model -->
@@ -183,11 +210,27 @@
 <script setup lang="ts">
 import { ref, watch, computed } from 'vue'
 
+// document.body.addEventListener('contextmenu', (e) => {
+//     e.preventDefault()
+
+// })
+
+
+//! document.body.style.userSelect = 'none'
+
+
+
+function addItem (myInput:any) {
+    console.log(myInput.key);
+ 
+}
+
 let person =ref({
     name: 'John',
     surname: 'Smith',
     age: 30
 })
+
 
 let mass = ref(['первый', 'второй', 'третий'])
 
@@ -257,8 +300,7 @@ function addMark () {
 setTimeout(()=> {
     myDiv.value.color = 'transparent'
 },1000)
-    
-    
+ 
     if (notes.value != '') {
         countNote.value++
         notesArray.value.push(notes.value)
@@ -273,7 +315,7 @@ function toUpperCase (note:string) {
     return note.toUpperCase()
 }
 
-// второй вариант
+
 function deleteItem (e:any) {
     if (e.target.nodeName == 'BUTTON') {
         const target = e.target.closest('li') 
@@ -285,8 +327,13 @@ function deleteItem (e:any) {
     }
 }
 
- 
- 
+ // второй вариант
+// function delClickedItem(note: any) {
+//     deletedNotes.value.push(note)
+//     console.log(note);
+// }
+
+
 
 
 
@@ -327,7 +374,6 @@ function changeTheme() {
     console.log(getComputedStyle(document.documentElement).getPropertyValue('--color-primary'));
     }
     
- let isAsc = ref(false)
 let number = ref(5) 
 // setInterval(()=> {
 //     number.value++
