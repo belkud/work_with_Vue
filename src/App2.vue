@@ -14,19 +14,25 @@ let buttons = ref(['Основы', 'Компоненты', 'Роутер', 'Vuex
 
 let acc= ref(0) 
 
-function nextButton () {
-    acc.value++
-    if (acc.value==buttonsInfo.value.length) {
-        acc.value=0
-    }
+// function nextButton () {
+//     acc.value++
+//     if (acc.value==buttonsInfo.value.length) {
+//         acc.value=0
+//     }
+// }
+
+// function previousButton () {
+//     acc.value--
+//     if (acc.value==-1) {
+//         acc.value= buttonsInfo.value.length-1
+//     }
+// }
+
+function navigate(direction: 'next' | 'prev') {
+    if (direction == 'next') return acc.value++
+    if (direction == 'prev') return acc.value--
 }
 
-function previousButton () {
-    acc.value--
-    if (acc.value==-1) {
-        acc.value= buttonsInfo.value.length-1
-    }
-}
 function selectButton(i:number) {
     acc.value = i
 }
@@ -50,11 +56,12 @@ function selectButton(i:number) {
         >{{ value }}</li>
         
     </ul>
-    <div class="buttonLocation">
-        <button @click="previousButton">Назад</button>
-        <button @click="nextButton()">Вперед</button>
-    </div>
-    <!-- <div :class="{ activeButton }">fhjghkgjk</div> -->
+<div class="buttonLocation">
+    <button :disabled="acc<1" v-show="acc <= 4"  @click="navigate('prev')">Назад</button>
+    <button v-show="acc < 4" @click="navigate('next')">Вперед</button>
+    <button v-show="acc == 4" @click="acc++, console.log(acc)">Закончить</button>
+</div>
+    <button v-show="acc==5" @click="acc=0">начать</button>
 </template>
 
 
